@@ -1,6 +1,11 @@
+/*
+ * File:   TM1637.c
+ * Author: dexte
+ *
+ * Created on 2020/10/31, 8:36
+ */
 
-#include "i2c_pp.h"
-#include <xc.h>
+#include "TM1637.h"
 #include "mcc_generated_files/mcc.h"
 
 #define COMM1 0x40 
@@ -48,7 +53,7 @@ void stop(void){
     DIO_SetHigh();    
 }
 
-uint8_t write_byte(uint8_t b){
+uint8_t write_data(uint8_t b){
     uint8_t data = b;
     
     CLK_SetDigitalOutput();    
@@ -101,23 +106,23 @@ void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos){
     
     //write COMM1
     start();
-    write_byte(COMM1);
+    write_data(COMM1);
     stop();
     
     //write COMM2 + first digit address
     start();
-    write_byte(COMM2 + (pos & 0x03));
+    write_data(COMM2 + (pos & 0x03));
     
     //write the data bytes
     for(uint8_t k = 0; k < length; k++){
-        write_byte(segments[k]);        
+        write_data(segments[k]);        
     }
     
     stop();
     
     //write COMM3 + brigthness
     start();
-    write_byte(COMM3 + (m_brightness & 0x0f));    
+    write_data(COMM3 + (m_brightness & 0x0f));    
     stop();
 }
 
@@ -126,6 +131,6 @@ void clear(){
 	set_segments(data, 4, 0);
 }
 
-uint8_t encode_digit(uint8_t digit){
+uint8_t encode_dig(uint8_t digit){
     return segdata[digit & 0x0f];
 }

@@ -12,43 +12,40 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\DS3231.X.production.o
-cinit CODE 0 7EC 7EC 14 2
-text1 CODE 0 678 678 60 2
-text2 CODE 0 458 458 2E 2
-text3 CODE 0 3CD 3CD 13 2
-text4 CODE 0 6D8 6D8 84 2
-text5 CODE 0 4B7 4B7 3A 2
-text6 CODE 0 52C 52C 3F 2
-text7 CODE 0 361 361 1 2
-text8 CODE 0 384 384 9 2
-text9 CODE 0 37B 37B 9 2
-text10 CODE 0 373 373 8 2
-text11 CODE 0 3E0 3E0 14 2
-text12 CODE 0 408 408 15 2
-text13 CODE 0 56B 56B 53 2
-text14 CODE 0 619 619 5F 2
-text15 CODE 0 5BE 5BE 5B 2
-text16 CODE 0 3BE 3BE F 2
-text17 CODE 0 3B1 3B1 D 2
-text18 CODE 0 3A4 3A4 D 2
-text19 CODE 0 397 397 D 2
-text20 CODE 0 486 486 31 2
-text21 CODE 0 433 433 25 2
-text22 CODE 0 75C 75C 90 2
-text23 CODE 0 38D 38D A 2
-text24 CODE 0 362 362 4 2
-text25 CODE 0 41D 41D 16 2
-text26 CODE 0 36C 36C 7 2
-maintext CODE 0 4F1 4F1 3B 2
+cinit CODE 0 7EB 7EB 15 2
+text1 CODE 0 519 519 13 2
+text2 CODE 0 77A 77A 71 2
+text3 CODE 0 583 583 3A 2
+text4 CODE 0 5BD 5BD 3F 2
+text5 CODE 0 4A8 4A8 1 2
+text6 CODE 0 4D2 4D2 9 2
+text7 CODE 0 4C9 4C9 9 2
+text8 CODE 0 4C1 4C1 8 2
+text9 CODE 0 5FC 5FC 53 2
+text10 CODE 0 64F 64F 5F 2
+text11 CODE 0 6AE 6AE 62 2
+text12 CODE 0 509 509 10 2
+text13 CODE 0 56C 56C 17 2
+text14 CODE 0 4BA 4BA 7 2
+text15 CODE 0 4E5 4E5 A 2
+text16 CODE 0 4EF 4EF C 2
+text17 CODE 0 52C 52C 14 2
+text18 CODE 0 540 540 15 2
+text19 CODE 0 4DB 4DB A 2
+text20 CODE 0 4A9 4A9 4 2
+text21 CODE 0 555 555 17 2
+text22 CODE 0 4B3 4B3 7 2
+nvBANK0 BANK0 1 42 42 2 1
+maintext CODE 0 710 710 6A 2
 cstackCOMMON COMMON 1 70 70 D 1
-cstackBANK0 BANK0 1 34 34 F 1
-inittext CODE 0 366 366 6 2
-bssBANK0 BANK0 1 43 43 4 1
-idataBANK0 CODE 0 3F4 3F4 14 2
-dataBANK0 BANK0 1 20 20 14 1
+cstackBANK0 BANK0 1 20 20 F 1
+inittext CODE 0 4AD 4AD 6 2
+bssBANK0 BANK0 1 3D 3D 5 1
+idataBANK0 CODE 0 4FB 4FB E 2
+dataBANK0 BANK0 1 2F 2F E 1
 bssCOMMON COMMON 1 7D 7D 1 1
 config CONFIG 4 8007 8007 2 2
-$C:\Users\dexte\AppData\Local\Temp\s2jo.o
+$C:\Users\dexte\AppData\Local\Temp\s110xg.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
 config CONFIG 4 8007 8007 2 2
@@ -58,19 +55,19 @@ config CONFIG 4 8007 8007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 47-6F 1
+RAM 44-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-24F 1
-BANK0 47-6F 1
+BANK0 44-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-24F 1
-CONST 4-360 2
+CONST 4-4A7 2
 CONST 800-FFF 2
-ENTRY 4-360 2
+ENTRY 4-4A7 2
 ENTRY 800-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
@@ -95,8 +92,8 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 2027-216F 1
-CODE 4-360 2
+STACK 2024-216F 1
+CODE 4-4A7 2
 CODE 800-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -110,9 +107,9 @@ SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-216F 1
 EEDATA F000-F0FF 2
-STRCODE 4-360 2
+STRCODE 4-4A7 2
 STRCODE 800-FFF 2
-STRING 4-360 2
+STRING 4-4A7 2
 STRING 800-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -128,292 +125,268 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\DS3231.X.production.o
-7EC cinit CODE >2134:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7EC cinit CODE >2137:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7EC cinit CODE >2185:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7ED cinit CODE >2186:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7EE cinit CODE >2187:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7EF cinit CODE >2188:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F0 cinit CODE >2189:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F1 cinit CODE >2190:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F2 cinit CODE >2191:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F3 cinit CODE >2192:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F4 cinit CODE >2193:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F5 cinit CODE >2194:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F8 cinit CODE >2199:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7F9 cinit CODE >2203:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7FA cinit CODE >2204:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7FB cinit CODE >2205:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7FC cinit CODE >2206:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7FD cinit CODE >2212:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7FD cinit CODE >2214:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-7FE cinit CODE >2215:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-36C text26 CODE >58:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-36C text26 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-36F text26 CODE >63:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-370 text26 CODE >65:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-372 text26 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-41D text25 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-41D text25 CODE >60:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-41F text25 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-420 text25 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-423 text25 CODE >67:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-425 text25 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-428 text25 CODE >73:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-42A text25 CODE >78:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-42C text25 CODE >79:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-42D text25 CODE >80:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-42F text25 CODE >86:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-431 text25 CODE >87:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-432 text25 CODE >94:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
-362 text24 CODE >68:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-362 text24 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-365 text24 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-38D text23 CODE >50:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-38D text23 CODE >53:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-390 text23 CODE >54:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-393 text23 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-396 text23 CODE >56:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
-75C text22 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-75C text22 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-75E text22 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-762 text22 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-76D text22 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-76F text22 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-76F text22 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-773 text22 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-77E text22 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-782 text22 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-78A text22 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-792 text22 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-794 text22 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-795 text22 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-79C text22 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7A0 text22 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7A4 text22 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7AB text22 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7BD text22 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7C5 text22 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7C6 text22 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7CD text22 CODE >36:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7D3 text22 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7D8 text22 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7E3 text22 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-7EB text22 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
-433 text21 CODE >13:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-434 text21 CODE >14:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-437 text21 CODE >15:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-456 text21 CODE >16:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-457 text21 CODE >17:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-486 text20 CODE >39:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-487 text20 CODE >41:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-492 text20 CODE >42:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-493 text20 CODE >43:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-49D text20 CODE >44:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-4A1 text20 CODE >45:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-4AB text20 CODE >47:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-4B4 text20 CODE >48:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-4B5 text20 CODE >50:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-4B6 text20 CODE >51:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-397 text19 CODE >29:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-397 text19 CODE >30:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3A2 text19 CODE >31:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3A3 text19 CODE >32:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3A4 text18 CODE >19:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3A4 text18 CODE >20:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3AF text18 CODE >21:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3B0 text18 CODE >22:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3B1 text17 CODE >24:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3B1 text17 CODE >25:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3BC text17 CODE >26:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3BD text17 CODE >27:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3BE text16 CODE >34:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3BF text16 CODE >35:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3CA text16 CODE >36:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3CC text16 CODE >37:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5BE text15 CODE >78:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5BF text15 CODE >79:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5C2 text15 CODE >80:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5C6 text15 CODE >81:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5CA text15 CODE >82:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5CD text15 CODE >83:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5D1 text15 CODE >85:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5DC text15 CODE >86:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5E7 text15 CODE >87:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5F2 text15 CODE >88:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-5F6 text15 CODE >89:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-601 text15 CODE >90:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-60B text15 CODE >91:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-615 text15 CODE >93:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-618 text15 CODE >94:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-619 text14 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-619 text14 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-61A text14 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-61E text14 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-623 text14 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-625 text14 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-629 text14 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-62E text14 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-632 text14 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-634 text14 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-63A text14 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-63C text14 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-63D text14 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-642 text14 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-646 text14 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-64A text14 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-64F text14 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-659 text14 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-65D text14 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-65E text14 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-663 text14 CODE >36:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-669 text14 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-66E text14 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-673 text14 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-677 text14 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
-56B text13 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-56B text13 CODE >12:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-56C text13 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-570 text13 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-575 text13 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-577 text13 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-57B text13 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-580 text13 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-586 text13 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-588 text13 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-589 text13 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-58E text13 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-592 text13 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-596 text13 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5A0 text13 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5A4 text13 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5A9 text13 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5AF text13 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5B4 text13 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5B9 text13 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-5BD text13 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-408 text12 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-409 text12 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-40A text12 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-40E text12 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-412 text12 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-414 text12 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-416 text12 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-41B text12 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-41C text12 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-3E0 text11 CODE >53:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3E1 text11 CODE >54:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3F3 text11 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-373 text10 CODE >129:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-374 text10 CODE >130:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-37A text10 CODE >131:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-37B text9 CODE >29:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-37B text9 CODE >30:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-37D text9 CODE >31:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-37E text9 CODE >33:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-380 text9 CODE >34:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-381 text9 CODE >36:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-382 text9 CODE >37:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-383 text9 CODE >38:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-384 text8 CODE >40:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-384 text8 CODE >41:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-386 text8 CODE >42:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-387 text8 CODE >44:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-389 text8 CODE >45:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-38A text8 CODE >47:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-38B text8 CODE >48:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-38C text8 CODE >49:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-361 text7 CODE >25:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-361 text7 CODE >27:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-52C text6 CODE >51:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-52D text6 CODE >52:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-531 text6 CODE >54:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-533 text6 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-534 text6 CODE >56:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-536 text6 CODE >58:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-53A text6 CODE >59:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-53C text6 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-53D text6 CODE >64:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-53E text6 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-542 text6 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-54C text6 CODE >70:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-54D text6 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-54E text6 CODE >74:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-54F text6 CODE >76:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-551 text6 CODE >77:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-554 text6 CODE >79:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-559 text6 CODE >80:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-55E text6 CODE >81:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-560 text6 CODE >82:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-562 text6 CODE >85:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-565 text6 CODE >86:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-567 text6 CODE >87:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-56A text6 CODE >90:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4B7 text5 CODE >100:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4B8 text5 CODE >103:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4BB text5 CODE >104:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4BF text5 CODE >105:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4C2 text5 CODE >108:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4C5 text5 CODE >109:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4CB text5 CODE >112:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4CD text5 CODE >113:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4D7 text5 CODE >112:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4E1 text5 CODE >116:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4E4 text5 CODE >119:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4E7 text5 CODE >120:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4ED text5 CODE >121:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-4F0 text5 CODE >122:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-6D8 text4 CODE >98:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6DA text4 CODE >99:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6E2 text4 CODE >101:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6EE text4 CODE >102:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6FA text4 CODE >104:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-710 text4 CODE >105:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-726 text4 CODE >106:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-73C text4 CODE >107:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-752 text4 CODE >109:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-75B text4 CODE >110:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-3CD text3 CODE >92:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-3CE text3 CODE >93:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-3D3 text3 CODE >94:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-3D9 text3 CODE >95:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-3DA text3 CODE >96:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-3DF text3 CODE >98:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c_pp.c
-458 text2 CODE >57:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-459 text2 CODE >58:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-485 text2 CODE >59:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-678 text1 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-679 text1 CODE >62:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-67C text1 CODE >63:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-680 text1 CODE >64:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-684 text1 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-68F text1 CODE >67:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-69A text1 CODE >68:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6A5 text1 CODE >69:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6A9 text1 CODE >70:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6B4 text1 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6BE text1 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6C8 text1 CODE >73:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6CB text1 CODE >75:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-6D7 text1 CODE >76:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
-4F1 maintext CODE >8:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-4F1 maintext CODE >11:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-4F4 maintext CODE >13:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-4F7 maintext CODE >15:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-4FB maintext CODE >17:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-50A maintext CODE >19:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-50E maintext CODE >21:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-514 maintext CODE >25:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-518 maintext CODE >26:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-51C maintext CODE >28:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-366 inittext CODE >2174:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-366 inittext CODE >2175:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-367 inittext CODE >2176:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-367 inittext CODE >2177:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-368 inittext CODE >2178:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-369 inittext CODE >2179:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-36A inittext CODE >2180:C:\Users\dexte\AppData\Local\Temp\s2jo.s
-36B inittext CODE >2181:C:\Users\dexte\AppData\Local\Temp\s2jo.s
+7EB cinit CODE >2452:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7EB cinit CODE >2455:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7EB cinit CODE >2500:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7EC cinit CODE >2501:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7ED cinit CODE >2502:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7EE cinit CODE >2503:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7EF cinit CODE >2504:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F0 cinit CODE >2505:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F1 cinit CODE >2506:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F2 cinit CODE >2507:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F3 cinit CODE >2508:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F4 cinit CODE >2509:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F7 cinit CODE >2514:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F8 cinit CODE >2518:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7F9 cinit CODE >2519:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7FA cinit CODE >2520:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7FB cinit CODE >2521:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7FC cinit CODE >2522:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7FD cinit CODE >2528:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7FD cinit CODE >2530:C:\Users\dexte\AppData\Local\Temp\s110x.s
+7FE cinit CODE >2531:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4B3 text22 CODE >58:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4B3 text22 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4B6 text22 CODE >63:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4B7 text22 CODE >65:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4B9 text22 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+555 text21 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+555 text21 CODE >60:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+557 text21 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+558 text21 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+55B text21 CODE >67:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+55D text21 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+560 text21 CODE >73:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+562 text21 CODE >78:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+565 text21 CODE >79:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+566 text21 CODE >80:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+568 text21 CODE >86:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+56A text21 CODE >87:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+56B text21 CODE >94:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+4A9 text20 CODE >68:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4A9 text20 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4AC text20 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4DB text19 CODE >50:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4DB text19 CODE >53:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4DE text19 CODE >54:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4E1 text19 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+4E4 text19 CODE >56:C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+540 text18 CODE >4:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+541 text18 CODE >6:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+542 text18 CODE >43:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+546 text18 CODE >44:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+54A text18 CODE >45:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+54C text18 CODE >46:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+54E text18 CODE >47:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+553 text18 CODE >50:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+554 text18 CODE >51:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+52C text17 CODE >14:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+52D text17 CODE >15:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+53F text17 CODE >16:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+4EF text16 CODE >12:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4EF text16 CODE >13:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4FA text16 CODE >14:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4E5 text15 CODE >16:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4E5 text15 CODE >17:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4E8 text15 CODE >18:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4EA text15 CODE >19:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4EE text15 CODE >20:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4BA text14 CODE >22:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4BA text14 CODE >23:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4BC text14 CODE >24:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+4C0 text14 CODE >25:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+56C text13 CODE >48:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+56D text13 CODE >51:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+573 text13 CODE >52:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+574 text13 CODE >53:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+578 text13 CODE >54:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+579 text13 CODE >55:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+57D text13 CODE >56:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+57E text13 CODE >57:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+581 text13 CODE >59:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+582 text13 CODE >60:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+509 text12 CODE >33:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+50A text12 CODE >34:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+50D text12 CODE >35:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+511 text12 CODE >36:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+515 text12 CODE >37:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+518 text12 CODE >38:C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+6AE text11 CODE >65:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6AF text11 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6B2 text11 CODE >67:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6B6 text11 CODE >68:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6BA text11 CODE >69:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6BD text11 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6C0 text11 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6C4 text11 CODE >74:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6D1 text11 CODE >75:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6DE text11 CODE >76:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6E5 text11 CODE >77:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6E9 text11 CODE >78:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6F0 text11 CODE >79:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6F7 text11 CODE >80:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+6FE text11 CODE >82:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+701 text11 CODE >84:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+704 text11 CODE >85:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+708 text11 CODE >86:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+70C text11 CODE >87:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+70F text11 CODE >89:C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+64F text10 CODE >5:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+64F text10 CODE >13:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+650 text10 CODE >14:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+654 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+659 text10 CODE >16:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+65B text10 CODE >18:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+65F text10 CODE >19:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+664 text10 CODE >20:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+668 text10 CODE >22:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+66A text10 CODE >23:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+670 text10 CODE >24:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+672 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+673 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+678 text10 CODE >27:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+67C text10 CODE >25:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+680 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+685 text10 CODE >31:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+68F text10 CODE >32:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+693 text10 CODE >33:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+694 text10 CODE >35:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+699 text10 CODE >36:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+69F text10 CODE >38:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+6A4 text10 CODE >39:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+6A9 text10 CODE >40:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+6AD text10 CODE >41:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+5FC text9 CODE >5:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+5FC text9 CODE >12:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+5FD text9 CODE >13:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+601 text9 CODE >14:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+606 text9 CODE >15:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+608 text9 CODE >17:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+60C text9 CODE >18:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+611 text9 CODE >19:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+617 text9 CODE >20:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+619 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+61A text9 CODE >22:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+61F text9 CODE >23:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+623 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+627 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+631 text9 CODE >27:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+635 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+63A text9 CODE >29:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+640 text9 CODE >31:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+645 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+64A text9 CODE >33:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+64E text9 CODE >34:C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+4C1 text8 CODE >134:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4C2 text8 CODE >135:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4C8 text8 CODE >136:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4C9 text7 CODE >34:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4C9 text7 CODE >35:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4CB text7 CODE >36:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4CC text7 CODE >38:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4CE text7 CODE >39:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4CF text7 CODE >41:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D0 text7 CODE >42:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D1 text7 CODE >43:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D2 text6 CODE >45:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D2 text6 CODE >46:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D4 text6 CODE >47:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D5 text6 CODE >49:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D7 text6 CODE >50:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D8 text6 CODE >52:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4D9 text6 CODE >53:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4DA text6 CODE >54:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4A8 text5 CODE >30:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+4A8 text5 CODE >32:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5BD text4 CODE >56:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5BE text4 CODE >57:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5C2 text4 CODE >59:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5C4 text4 CODE >60:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5C5 text4 CODE >61:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5C7 text4 CODE >63:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5CB text4 CODE >64:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5CD text4 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5CE text4 CODE >69:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5CF text4 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5D3 text4 CODE >60:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5DD text4 CODE >75:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5DE text4 CODE >76:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5DF text4 CODE >79:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5E0 text4 CODE >81:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5E2 text4 CODE >82:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5E5 text4 CODE >84:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5EA text4 CODE >85:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5EF text4 CODE >86:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5F1 text4 CODE >87:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5F3 text4 CODE >90:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5F6 text4 CODE >91:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5F8 text4 CODE >92:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5FB text4 CODE >95:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+583 text3 CODE >105:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+584 text3 CODE >108:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+587 text3 CODE >109:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+58B text3 CODE >110:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+58E text3 CODE >113:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+591 text3 CODE >114:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+597 text3 CODE >117:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+599 text3 CODE >118:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5A3 text3 CODE >117:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5AD text3 CODE >121:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5B0 text3 CODE >124:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5B3 text3 CODE >125:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5B9 text3 CODE >126:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+5BC text3 CODE >127:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+77A text2 CODE >59:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+77C text2 CODE >60:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+784 text2 CODE >62:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+784 text2 CODE >63:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+784 text2 CODE >66:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+789 text2 CODE >69:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+79F text2 CODE >70:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+7B5 text2 CODE >71:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+7CB text2 CODE >72:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+7E1 text2 CODE >74:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+7EA text2 CODE >75:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+519 text1 CODE >97:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+51A text1 CODE >98:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+51F text1 CODE >99:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+525 text1 CODE >100:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+526 text1 CODE >101:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+52B text1 CODE >103:C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
+710 maintext CODE >11:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+710 maintext CODE >14:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+713 maintext CODE >16:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+715 maintext CODE >17:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+716 maintext CODE >23:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+719 maintext CODE >24:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+71B maintext CODE >25:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+71C maintext CODE >26:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+71D maintext CODE >29:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+722 maintext CODE >30:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+726 maintext CODE >31:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+72A maintext CODE >33:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+72E maintext CODE >34:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+732 maintext CODE >36:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+738 maintext CODE >38:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+73C maintext CODE >39:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+73E maintext CODE >40:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+73F maintext CODE >41:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+743 maintext CODE >42:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+748 maintext CODE >43:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+755 maintext CODE >40:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+75C maintext CODE >45:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+75D maintext CODE >50:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+766 maintext CODE >52:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+76A maintext CODE >53:C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+4AD inittext CODE >2489:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4AD inittext CODE >2490:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4AE inittext CODE >2491:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4AE inittext CODE >2492:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4AF inittext CODE >2493:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4B0 inittext CODE >2494:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4B1 inittext CODE >2495:C:\Users\dexte\AppData\Local\Temp\s110x.s
+4B2 inittext CODE >2496:C:\Users\dexte\AppData\Local\Temp\s110x.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -434,108 +407,92 @@ __Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10010 0 ABS 0 - -
-_set_segments 96E 0 CODE 0 text5 dist/default/production\DS3231.X.production.o
+_set_segments B06 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
-__end_of_write_byte AD6 0 CODE 0 text6 dist/default/production\DS3231.X.production.o
-__end_of_write_date DB0 0 CODE 0 text1 dist/default/production\DS3231.X.production.o
-rtc_display@segments 34 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
+__end_of_write_byte A32 0 CODE 0 text12 dist/default/production\DS3231.X.production.o
+__end_of_write_data BF8 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
+rtc_display@segments 22 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-_i2c_init 866 0 CODE 0 text21 dist/default/production\DS3231.X.production.o
-_i2c_read 90C 0 CODE 0 text20 dist/default/production\DS3231.X.production.o
-_i2c_stop 762 0 CODE 0 text17 dist/default/production\DS3231.X.production.o
-__end_of_WDT_Initialize 6CC 0 CODE 0 text24 dist/default/production\DS3231.X.production.o
+_i2c_stop 974 0 CODE 0 text14 dist/default/production\DS3231.X.production.o
+_i2c_wait 9DE 0 CODE 0 text16 dist/default/production\DS3231.X.production.o
+__end_of_WDT_Initialize 95A 0 CODE 0 text20 dist/default/production\DS3231.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-_decimal_2_bcd 8B0 0 CODE 0 text2 dist/default/production\DS3231.X.production.o
 _LATA 10C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _LATB 10D 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _WPUA 20C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\s2jo.o
-_main 9E2 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
-_stop 708 0 CODE 0 text8 dist/default/production\DS3231.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\s110xg.o
+_main E20 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
+_stop 9A4 0 CODE 0 text6 dist/default/production\DS3231.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__size_of_i2c_repeated_start 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-start 4 0 CODE 0 init C:\Users\dexte\AppData\Local\Temp\s2jo.o
-__size_of___aldiv 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
+start 4 0 CODE 0 init C:\Users\dexte\AppData\Local\Temp\s110xg.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__end_of_i2c_init 8B0 0 CODE 0 text21 dist/default/production\DS3231.X.production.o
-__end_of_i2c_read 96E 0 CODE 0 text20 dist/default/production\DS3231.X.production.o
-__end_of_i2c_stop 77C 0 CODE 0 text17 dist/default/production\DS3231.X.production.o
+__end_of_i2c_stop 982 0 CODE 0 text14 dist/default/production\DS3231.X.production.o
+__end_of_i2c_wait 9F6 0 CODE 0 text16 dist/default/production\DS3231.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __size_of_stop 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\DS3231.X.production.o
-rtc_display@date 3A 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
+rtc_display@date 26 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
+__size_of_read_dates 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_set_segments 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 ___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-_encode_digit 6E6 0 CODE 0 text10 dist/default/production\DS3231.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s2jo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s2jo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s2jo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s2jo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s2jo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s2jo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s110xg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s110xg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s110xg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s110xg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s110xg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\s110xg.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 ___bmul@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-___aldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\DS3231.X.production.o
 set_segments@pos 76 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-___aldiv@sign 35 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
 ___awdiv@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-_set_brigthness 79A 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
-__end_of_set_segments 9E2 0 CODE 0 text5 dist/default/production\DS3231.X.production.o
-write_byte@ack 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+_set_brigthness A32 0 CODE 0 text1 dist/default/production\DS3231.X.production.o
+__end_of_set_segments B7A 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
 __size_of_rtc_display 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
+__size_of_encode_dig 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _ANSELA 18C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _ANSELB 18D 0 ABS 0 - dist/default/production\DS3231.X.production.o
 ___awdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-decimal_2_bcd@number 79 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 _BORCON 116 0 ABS 0 - dist/default/production\DS3231.X.production.o
 set_segments@k 79 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-__size_of_encode_digit 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__end_of___bmul 83A 0 CODE 0 text12 dist/default/production\DS3231.X.production.o
+__end_of___bmul AAA 0 CODE 0 text18 dist/default/production\DS3231.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of_i2c_start 762 0 CODE 0 text18 dist/default/production\DS3231.X.production.o
-__end_of_i2c_write 79A 0 CODE 0 text16 dist/default/production\DS3231.X.production.o
+__end_of_i2c_start 9DE 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
+__LnvBANK0 0 0 ABS 0 nvBANK0 -
 ___bmul@multiplier 73 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 ___awdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __size_of_i2c_start 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__size_of_i2c_write 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__end_of___aldiv FD8 0 CODE 0 text22 dist/default/production\DS3231.X.production.o
-__end_of___awdiv CF0 0 CODE 0 text14 dist/default/production\DS3231.X.production.o
-__end_of___awmod B7C 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
-__size_of_decimal_2_bcd 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___stackhi 216F 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\s2jo.o
-___stacklo 2027 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\s2jo.o
-__end_of_encode_digit 6F6 0 CODE 0 text10 dist/default/production\DS3231.X.production.o
-__end_of_set_brigthness 7C0 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
-i2c_init@clk_freq 7B 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+__end_of___awdiv D5C 0 CODE 0 text10 dist/default/production\DS3231.X.production.o
+__end_of___awmod C9E 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
+encode_dig@digit 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+___stackhi 216F 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\s110xg.o
+___stacklo 2024 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\s110xg.o
+__end_of_set_brigthness A58 0 CODE 0 text1 dist/default/production\DS3231.X.production.o
 __size_of_start 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_i2c_start 748 0 CODE 0 text18 dist/default/production\DS3231.X.production.o
-_i2c_write 77C 0 CODE 0 text16 dist/default/production\DS3231.X.production.o
-_PIN_MANAGER_Initialize 83A 0 CODE 0 text25 dist/default/production\DS3231.X.production.o
-start_initialization FD8 0 CODE 0 cinit dist/default/production\DS3231.X.production.o
+_i2c_start 9CA 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
+_PIN_MANAGER_Initialize AAA 0 CODE 0 text21 dist/default/production\DS3231.X.production.o
+_SSP2CON1bits 21D 0 ABS 0 - dist/default/production\DS3231.X.production.o
+start_initialization FD6 0 CODE 0 cinit dist/default/production\DS3231.X.production.o
 _SSP2CON2bits 21E 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__end_of_decimal_2_bcd 90C 0 CODE 0 text2 dist/default/production\DS3231.X.production.o
 _TRISAbits 8C 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___aldiv@quotient 36 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
 __size_of_write_byte 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__size_of_write_date 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__end_of_SYSTEM_Initialize 72E 0 CODE 0 text23 dist/default/production\DS3231.X.production.o
-__pcstackBANK0 34 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
-_SSPADD 212 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_SSPBUF 211 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_SSPCON 215 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_bcd_2_decimal 7C0 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
+__size_of_write_data 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
+__end_of_SYSTEM_Initialize 9CA 0 CODE 0 text19 dist/default/production\DS3231.X.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
+_TRISB2 46A 0 ABS 0 - dist/default/production\DS3231.X.production.o
+_TRISB5 46D 0 ABS 0 - dist/default/production\DS3231.X.production.o
+_bcd_2_decimal A58 0 CODE 0 text17 dist/default/production\DS3231.X.production.o
 _WDTCON 97 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\s2jo.o
+___int_sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\s110xg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -607,7 +564,7 @@ __Lbank6 0 0 BANK6 1 bank6 -
 __Lbank7 0 0 BANK7 1 bank7 -
 __Lbank8 0 0 BANK8 1 bank8 -
 __Lbank9 0 0 BANK9 1 bank9 -
-__Lcinit FD8 0 CODE 0 cinit -
+__Lcinit FD6 0 CODE 0 cinit -
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -633,7 +590,7 @@ __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
 _APFCON0 11D 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _APFCON1 11E 0 ABS 0 - dist/default/production\DS3231.X.production.o
-init_ram 6CC 0 CODE 0 inittext dist/default/production\DS3231.X.production.o
+init_ram 95A 0 CODE 0 inittext dist/default/production\DS3231.X.production.o
 __Linittext 0 0 ABS 0 inittext -
 _PORTAbits C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
@@ -664,8 +621,13 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-___bmul 810 0 CODE 0 text12 dist/default/production\DS3231.X.production.o
+__pnvBANK0 42 0 BANK0 1 nvBANK0 dist/default/production\DS3231.X.production.o
+_SSP2CON1 21D 0 ABS 0 - dist/default/production\DS3231.X.production.o
+_SSP2CON2 21E 0 ABS 0 - dist/default/production\DS3231.X.production.o
+_SSP2STAT 21C 0 ABS 0 - dist/default/production\DS3231.X.production.o
+___bmul A80 0 CODE 0 text18 dist/default/production\DS3231.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+_SSP2STATbits 21C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_WDT_Initialize 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _m_brightness 7D 0 COMMON 1 bssCOMMON dist/default/production\DS3231.X.production.o
@@ -673,42 +635,41 @@ __S0 800 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_rtc_display DB0 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
+_cnt 41 0 BANK0 1 bssBANK0 dist/default/production\DS3231.X.production.o
+_min 43 0 BANK0 1 nvBANK0 dist/default/production\DS3231.X.production.o
+_sec 42 0 BANK0 1 nvBANK0 dist/default/production\DS3231.X.production.o
+_rtc_display EF4 0 CODE 0 text2 dist/default/production\DS3231.X.production.o
 set_brigthness@on 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-_SYSTEM_Initialize 71A 0 CODE 0 text23 dist/default/production\DS3231.X.production.o
+_SYSTEM_Initialize 9B6 0 CODE 0 text19 dist/default/production\DS3231.X.production.o
+write_data@data 73 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 set_brigthness@brightness 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+__HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 4 0 CODE 0 intentry -
-encode_digit@digit 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\dexte\AppData\Local\Temp\s2jo.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\dexte\AppData\Local\Temp\s110xg.o
 bcd_2_decimal@number 77 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-write_date@date 7C 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-__pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
+__pdataBANK0 2F 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __size_of_bcd_2_decimal 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 ___awmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-__ptext10 6E6 0 CODE 0 text10 dist/default/production\DS3231.X.production.o
-__ptext11 7C0 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
-__ptext12 810 0 CODE 0 text12 dist/default/production\DS3231.X.production.o
-__ptext13 AD6 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
-__ptext14 C32 0 CODE 0 text14 dist/default/production\DS3231.X.production.o
-__ptext15 B7C 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
-__ptext16 77C 0 CODE 0 text16 dist/default/production\DS3231.X.production.o
-__ptext17 762 0 CODE 0 text17 dist/default/production\DS3231.X.production.o
-__ptext18 748 0 CODE 0 text18 dist/default/production\DS3231.X.production.o
-__ptext19 72E 0 CODE 0 text19 dist/default/production\DS3231.X.production.o
-__ptext20 90C 0 CODE 0 text20 dist/default/production\DS3231.X.production.o
-__ptext21 866 0 CODE 0 text21 dist/default/production\DS3231.X.production.o
-__ptext22 EB8 0 CODE 0 text22 dist/default/production\DS3231.X.production.o
-__ptext23 71A 0 CODE 0 text23 dist/default/production\DS3231.X.production.o
-__ptext24 6C4 0 CODE 0 text24 dist/default/production\DS3231.X.production.o
-__ptext25 83A 0 CODE 0 text25 dist/default/production\DS3231.X.production.o
-__ptext26 6D8 0 CODE 0 text26 dist/default/production\DS3231.X.production.o
-__end_of_PIN_MANAGER_Initialize 866 0 CODE 0 text25 dist/default/production\DS3231.X.production.o
-___aldiv EB8 0 CODE 0 text22 dist/default/production\DS3231.X.production.o
-___awdiv C32 0 CODE 0 text14 dist/default/production\DS3231.X.production.o
-___awmod AD6 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
-__end_of_i2c_repeated_start 748 0 CODE 0 text19 dist/default/production\DS3231.X.production.o
+__end_of_recv_byte B06 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
+__ptext10 C9E 0 CODE 0 text10 dist/default/production\DS3231.X.production.o
+__ptext11 D5C 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
+__ptext12 A12 0 CODE 0 text12 dist/default/production\DS3231.X.production.o
+__ptext13 AD8 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
+__ptext14 974 0 CODE 0 text14 dist/default/production\DS3231.X.production.o
+__ptext15 9CA 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
+__ptext16 9DE 0 CODE 0 text16 dist/default/production\DS3231.X.production.o
+__ptext17 A58 0 CODE 0 text17 dist/default/production\DS3231.X.production.o
+__ptext18 A80 0 CODE 0 text18 dist/default/production\DS3231.X.production.o
+__ptext19 9B6 0 CODE 0 text19 dist/default/production\DS3231.X.production.o
+__ptext20 952 0 CODE 0 text20 dist/default/production\DS3231.X.production.o
+__ptext21 AAA 0 CODE 0 text21 dist/default/production\DS3231.X.production.o
+__ptext22 966 0 CODE 0 text22 dist/default/production\DS3231.X.production.o
+__end_of_PIN_MANAGER_Initialize AD8 0 CODE 0 text21 dist/default/production\DS3231.X.production.o
+___awdiv C9E 0 CODE 0 text10 dist/default/production\DS3231.X.production.o
+___awmod BF8 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
+__size_of_recv_byte 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -731,21 +692,22 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 9E2 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
+__pmaintext E20 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
 __Lbigram 0 0 ABS 0 bigram -
-write_byte@b 71 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-write_byte@i 74 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Hinittext 0 0 ABS 0 inittext -
 _LATAbits 10C 0 ABS 0 - dist/default/production\DS3231.X.production.o
-main@F2397 2A 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
-main@date 3D 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
-__end_of_bcd_2_decimal 7E8 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
+write_data@b 71 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+write_data@i 74 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+_read_dates D5C 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
+main@date 29 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
+recv_byte@ack 71 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+__end_of_bcd_2_decimal A80 0 CODE 0 text17 dist/default/production\DS3231.X.production.o
+_recv_byte AD8 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
 set_segments@length 75 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-_segdata 20 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
+_segdata 2F 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
 _OSCTUNE 98 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_i2c_repeated_start 72E 0 CODE 0 text19 dist/default/production\DS3231.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -758,74 +720,68 @@ __Lend_init 4 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_set_brigthness 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 end_of_initialization FFA 0 CODE 0 cinit dist/default/production\DS3231.X.production.o
-read_date@date 74 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+recv_byte@data 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __Hintentry 4 0 CODE 0 intentry -
+_encode_dig 982 0 CODE 0 text8 dist/default/production\DS3231.X.production.o
 __Lstrings 0 0 ABS 0 strings -
+read_dates@min 7A 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+read_dates@sec 78 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 ___awdiv@quotient 77 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-?___aldiv 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 ?___awdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 ?___awmod 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-i2c_write@data 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-i2c_read@ack 71 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 ___awmod@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-__ptext1 CF0 0 CODE 0 text1 dist/default/production\DS3231.X.production.o
-__ptext2 8B0 0 CODE 0 text2 dist/default/production\DS3231.X.production.o
-__ptext3 79A 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
-__ptext4 DB0 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
-__ptext5 96E 0 CODE 0 text5 dist/default/production\DS3231.X.production.o
-__ptext6 A58 0 CODE 0 text6 dist/default/production\DS3231.X.production.o
-__ptext7 6C2 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
-__ptext8 708 0 CODE 0 text8 dist/default/production\DS3231.X.production.o
-__ptext9 6F6 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
-___aldiv@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-i2c_read@data 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+__ptext1 A32 0 CODE 0 text1 dist/default/production\DS3231.X.production.o
+__ptext2 EF4 0 CODE 0 text2 dist/default/production\DS3231.X.production.o
+__ptext3 B06 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
+__ptext4 B7A 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
+__ptext5 950 0 CODE 0 text5 dist/default/production\DS3231.X.production.o
+__ptext6 9A4 0 CODE 0 text6 dist/default/production\DS3231.X.production.o
+__ptext7 992 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
+__ptext8 982 0 CODE 0 text8 dist/default/production\DS3231.X.production.o
+__ptext9 BF8 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
+__end_of_read_dates E20 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-write_byte@data 73 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+write_data@ack 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
+write_byte@data 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of__initialization FFA 0 CODE 0 cinit dist/default/production\DS3231.X.production.o
 ___awmod@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-__end_of_read_date C32 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-rtc_display@min 38 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
-rtc_display@sec 39 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
-__size_of_read_date 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__pidataBANK0 7E8 0 CODE 0 idataBANK0 dist/default/production\DS3231.X.production.o
+__pidataBANK0 9F6 0 CODE 0 idataBANK0 dist/default/production\DS3231.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
+__end_of_encode_dig 992 0 CODE 0 text8 dist/default/production\DS3231.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-_write_byte A58 0 CODE 0 text6 dist/default/production\DS3231.X.production.o
-_write_date CF0 0 CODE 0 text1 dist/default/production\DS3231.X.production.o
-_SSPCON2 216 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_SSPSTAT 214 0 ABS 0 - dist/default/production\DS3231.X.production.o
+_write_byte A12 0 CODE 0 text12 dist/default/production\DS3231.X.production.o
+_write_data B7A 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
+_SSP2ADD 21A 0 ABS 0 - dist/default/production\DS3231.X.production.o
+_SSP2BUF 219 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __Hend_init 8 0 CODE 0 end_init -
-_read_date B7C 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
-___aldiv@counter 34 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
-__end_of_main A58 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
-__end_of_stop 71A 0 CODE 0 text8 dist/default/production\DS3231.X.production.o
-__end_of_rtc_display EB8 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
-__size_of_i2c_init 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__size_of_i2c_read 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
+__end_of_main EF4 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
+__end_of_stop 9B6 0 CODE 0 text6 dist/default/production\DS3231.X.production.o
+__end_of_rtc_display FD6 0 CODE 0 text2 dist/default/production\DS3231.X.production.o
 __size_of_i2c_stop 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
+__size_of_i2c_wait 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _TRISA 8C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _TRISB 8D 0 ABS 0 - dist/default/production\DS3231.X.production.o
-__end_of_start 708 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
-__end_of_bit_delay 6C4 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
+__end_of_start 9A4 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
+__end_of_bit_delay 952 0 CODE 0 text5 dist/default/production\DS3231.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_start 6F6 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
-rtc_display@F2405 30 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
+_start 992 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
+rtc_display@F2398 39 0 BANK0 1 dataBANK0 dist/default/production\DS3231.X.production.o
 __size_of_bit_delay 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-_WDT_Initialize 6C4 0 CODE 0 text24 dist/default/production\DS3231.X.production.o
+_WDT_Initialize 952 0 CODE 0 text20 dist/default/production\DS3231.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
-__end_of_OSCILLATOR_Initialize 6E6 0 CODE 0 text26 dist/default/production\DS3231.X.production.o
-__initialization FD8 0 CODE 0 cinit dist/default/production\DS3231.X.production.o
+__end_of_OSCILLATOR_Initialize 974 0 CODE 0 text22 dist/default/production\DS3231.X.production.o
+__initialization FD6 0 CODE 0 cinit dist/default/production\DS3231.X.production.o
 ___bmul@product 72 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
-__pbssBANK0 43 0 BANK0 1 bssBANK0 dist/default/production\DS3231.X.production.o
-_bit_delay 6C2 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
-_OSCILLATOR_Initialize 6D8 0 CODE 0 text26 dist/default/production\DS3231.X.production.o
+__pbssBANK0 3D 0 BANK0 1 bssBANK0 dist/default/production\DS3231.X.production.o
+_bit_delay 950 0 CODE 0 text5 dist/default/production\DS3231.X.production.o
+_OSCILLATOR_Initialize 966 0 CODE 0 text22 dist/default/production\DS3231.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -851,39 +807,35 @@ _OSCILLATOR_Initialize 6D8 0 CODE 0 text26 dist/default/production\DS3231.X.prod
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7EC FD8 14 2
-text1 0 678 CF0 60 2
-text2 0 458 8B0 2E 2
-text3 0 3CD 79A 13 2
-text4 0 6D8 DB0 84 2
-text5 0 4B7 96E 3A 2
-text6 0 52C A58 3F 2
-text7 0 361 6C2 1 2
-text8 0 384 708 9 2
-text9 0 37B 6F6 9 2
-text10 0 373 6E6 8 2
-text11 0 3E0 7C0 14 2
-text12 0 408 810 15 2
-text13 0 56B AD6 53 2
-text14 0 619 C32 5F 2
-text15 0 5BE B7C 5B 2
-text16 0 3BE 77C F 2
-text17 0 3B1 762 D 2
-text18 0 3A4 748 D 2
-text19 0 397 72E D 2
-text20 0 486 90C 31 2
-text21 0 433 866 25 2
-text22 0 75C EB8 90 2
-text23 0 38D 71A A 2
-text24 0 362 6C4 4 2
-text25 0 41D 83A 16 2
-text26 0 36C 6D8 7 2
-maintext 0 4F1 9E2 3B 2
+cinit 0 7EB FD6 15 2
+text1 0 519 A32 13 2
+text2 0 77A EF4 71 2
+text3 0 583 B06 3A 2
+text4 0 5BD B7A 3F 2
+text5 0 4A8 950 1 2
+text6 0 4D2 9A4 9 2
+text7 0 4C9 992 9 2
+text8 0 4C1 982 8 2
+text9 0 5FC BF8 53 2
+text10 0 64F C9E 5F 2
+text11 0 6AE D5C 62 2
+text12 0 509 A12 10 2
+text13 0 56C AD8 17 2
+text14 0 4BA 974 7 2
+text15 0 4E5 9CA A 2
+text16 0 4EF 9DE C 2
+text17 0 52C A58 14 2
+text18 0 540 A80 15 2
+text19 0 4DB 9B6 A 2
+text20 0 4A9 952 4 2
+text21 0 555 AAA 17 2
+text22 0 4B3 966 7 2
+maintext 0 710 E20 6A 2
 cstackCOMMON 1 70 70 E 1
-inittext 0 366 6CC 6 2
+cstackBANK0 1 20 20 24 1
+inittext 0 4AD 95A 6 2
 reset_vec 0 0 0 4 2
-idataBANK0 0 3F4 7E8 14 2
-dataBANK0 1 20 20 27 1
+idataBANK0 0 4FB 9F6 E 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

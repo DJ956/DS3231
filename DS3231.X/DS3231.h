@@ -2,16 +2,21 @@
  * File:   DS3231.h
  * Author: dexte
  *
- * Created on October 13, 2020, 11:45 PM
+ * Created on October 31, 2020, 10:08 AM
  */
 
 #ifndef DS3231_H
-#define DS3231_H
+#define	DS3231_H
+
+#ifdef	__cplusplus
+extern "C" {
+#endif
 
 #include <xc.h>
 #include <stdint.h>
     
-#define RTC_ADR 0x68
+//#define RTC_ADR 0x68
+#define RTC_ADR 0xD0
 
 struct Date{
     uint8_t year;
@@ -23,27 +28,16 @@ struct Date{
 };
 
 void write_date(struct Date *date);
-
 void read_date(struct Date *date);
-
-void i2c_init(uint8_t clk_freq);
-void i2c_start();
-void i2c_stop();
-void i2c_repeated_start();
-void i2c_write(uint8_t data);
-uint8_t i2c_read(uint8_t ack);
-
+void read_dates(uint8_t *min, uint8_t *sec);
 uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
-
 void rtc_display(struct Date *date);
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
 
 #ifdef	__cplusplus
 }
 #endif
 
-#endif
+#endif	/* DS3231_H */
+
