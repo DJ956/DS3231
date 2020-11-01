@@ -4349,16 +4349,12 @@ uint8_t sec;
 
 void write_date(struct Date *date);
 void read_date(struct Date *date);
-void read_dates(uint8_t *min, uint8_t *sec);
+uint8_t read_(uint8_t address);
 uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
 void rtc_display(struct Date *date);
 
 # 7 "main.c"
-uint8_t cnt;
-uint8_t min;
-uint8_t sec;
-
 void main(void)
 {
 
@@ -4366,8 +4362,9 @@ SYSTEM_Initialize();
 
 TRISB2 = 1;
 TRISB5 = 1;
+WPUB = 0x24;
 
-# 23
+
 SSP2ADD = 0x13;
 SSP2CON1 = 0x28;
 SSP2CON2 = 0x0;
@@ -4375,30 +4372,22 @@ SSP2STAT = 0;
 
 struct Date date;
 date.year = 20;
+date.month = 11;
+date.day = 1;
+date.hour = 10;
 date.min = 38;
-date.sec = 14;
+date.sec = 24;
 
-sec = 20;
-min = 11;
+write_date(&date);
 
 set_brigthness(0x0f, 1);
 
-rtc_display(&date);
-cnt = 0;
-while(cnt < 5){
-rtc_display(&date);
-cnt++;
-_delay((unsigned long)((1000)*(8000000/4000.0)));
-}
-cnt = 0;
 
 while (1)
 {
-
-read_dates(&min, &sec);
-
+read_date(&date);
 rtc_display(&date);
-_delay((unsigned long)((1000)*(8000000/4000.0)));
+_delay((unsigned long)((100)*(8000000/4000.0)));
 }
 }
 
@@ -4408,11 +4397,11 @@ void rtc_display(struct Date *date){
 uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
 
 uint8_t year = date->year;
-uint8_t month =date->month;
-
-
-sec = sec+cnt;
-
+uint8_t month = date->month;
+uint8_t day = date->day;
+uint8_t hour = date->hour;
+uint8_t min = date->min;
+uint8_t sec = date->sec;
 
 segments[0] = encode_dig(min / 10);
 segments[1] = encode_dig(min % 10);

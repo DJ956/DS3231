@@ -6,6 +6,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISB2 `Vb ~T0 @X0 0 e@1130 ]
 "8057
 [v _TRISB5 `Vb ~T0 @X0 0 e@1133 ]
+"3517
+[v _WPUB `Vuc ~T0 @X0 0 e@525 ]
 "4291
 [v _SSP2ADD `Vuc ~T0 @X0 0 e@538 ]
 "4393
@@ -17,16 +19,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "21 DS3231.h
 [s S349 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S349 Date year month day hour min sec ]
+"30
+[v _write_date `(v ~T0 @X0 0 ef1`*S349 ]
 "12 TM1637.h
 [v _set_brigthness `(v ~T0 @X0 0 ef2`uc`uc ]
-"35 DS3231.h
+"31 DS3231.h
+[v _read_date `(v ~T0 @X0 0 ef1`*S349 ]
+"35
 [v _rtc_display `(v ~T0 @X0 0 ef1`*S349 ]
 [v F38 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
 [v __delay `JF38 ~T0 @X0 0 e ]
 [p i __delay ]
-"32 DS3231.h
-[v _read_dates `(v ~T0 @X0 0 ef2`*uc`*uc ]
 "16 TM1637.h
 [v _encode_dig `(uc ~T0 @X0 0 ef1`uc ]
 "14
@@ -2846,137 +2850,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS3231.h: 28: };
 [; ;DS3231.h: 30: void write_date(struct Date *date);
 [; ;DS3231.h: 31: void read_date(struct Date *date);
-[; ;DS3231.h: 32: void read_dates(uint8_t *min, uint8_t *sec);
+[; ;DS3231.h: 32: uint8_t read_(uint8_t address);
 [; ;DS3231.h: 33: uint8_t bcd_2_decimal(uint8_t number);
 [; ;DS3231.h: 34: uint8_t decimal_2_bcd(uint8_t number);
 [; ;DS3231.h: 35: void rtc_display(struct Date *date);
-"7 main.c
-[v _cnt `uc ~T0 @X0 1 e ]
-[; ;main.c: 7: uint8_t cnt;
-"8
-[v _min `uc ~T0 @X0 1 e ]
-[; ;main.c: 8: uint8_t min;
-"9
-[v _sec `uc ~T0 @X0 1 e ]
-[; ;main.c: 9: uint8_t sec;
 [v $root$_main `(v ~T0 @X0 0 e ]
-"11
+"7 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"12
+"8
 {
-[; ;main.c: 11: void main(void)
-[; ;main.c: 12: {
+[; ;main.c: 7: void main(void)
+[; ;main.c: 8: {
 [e :U _main ]
 [f ]
-[; ;main.c: 14: SYSTEM_Initialize();
-"14
+[; ;main.c: 10: SYSTEM_Initialize();
+"10
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 16: TRISB2 = 1;
-"16
+[; ;main.c: 12: TRISB2 = 1;
+"12
 [e = _TRISB2 -> -> 1 `i `b ]
-[; ;main.c: 17: TRISB5 = 1;
-"17
+[; ;main.c: 13: TRISB5 = 1;
+"13
 [e = _TRISB5 -> -> 1 `i `b ]
-[; ;main.c: 23: SSP2ADD = 0x13;
-"23
+[; ;main.c: 14: WPUB = 0x24;
+"14
+[e = _WPUB -> -> 36 `i `uc ]
+[; ;main.c: 17: SSP2ADD = 0x13;
+"17
 [e = _SSP2ADD -> -> 19 `i `uc ]
-[; ;main.c: 24: SSP2CON1 = 0x28;
-"24
+[; ;main.c: 18: SSP2CON1 = 0x28;
+"18
 [e = _SSP2CON1 -> -> 40 `i `uc ]
-[; ;main.c: 25: SSP2CON2 = 0x0;
-"25
+[; ;main.c: 19: SSP2CON2 = 0x0;
+"19
 [e = _SSP2CON2 -> -> 0 `i `uc ]
-[; ;main.c: 26: SSP2STAT = 0;
-"26
+[; ;main.c: 20: SSP2STAT = 0;
+"20
 [e = _SSP2STAT -> -> 0 `i `uc ]
-"28
+"22
 [v _date `S349 ~T0 @X0 1 a ]
-[; ;main.c: 28: struct Date date;
-[; ;main.c: 29: date.year = 20;
-"29
+[; ;main.c: 22: struct Date date;
+[; ;main.c: 23: date.year = 20;
+"23
 [e = . _date 0 -> -> 20 `i `uc ]
-[; ;main.c: 30: date.min = 38;
-"30
+[; ;main.c: 24: date.month = 11;
+"24
+[e = . _date 1 -> -> 11 `i `uc ]
+[; ;main.c: 25: date.day = 1;
+"25
+[e = . _date 2 -> -> 1 `i `uc ]
+[; ;main.c: 26: date.hour = 10;
+"26
+[e = . _date 3 -> -> 10 `i `uc ]
+[; ;main.c: 27: date.min = 38;
+"27
 [e = . _date 4 -> -> 38 `i `uc ]
-[; ;main.c: 31: date.sec = 14;
-"31
-[e = . _date 5 -> -> 14 `i `uc ]
-[; ;main.c: 33: sec = 20;
-"33
-[e = _sec -> -> 20 `i `uc ]
-[; ;main.c: 34: min = 11;
-"34
-[e = _min -> -> 11 `i `uc ]
-[; ;main.c: 36: set_brigthness(0x0f, 1);
-"36
+[; ;main.c: 28: date.sec = 24;
+"28
+[e = . _date 5 -> -> 24 `i `uc ]
+[; ;main.c: 30: write_date(&date);
+"30
+[e ( _write_date (1 &U _date ]
+[; ;main.c: 32: set_brigthness(0x0f, 1);
+"32
 [e ( _set_brigthness (2 , -> -> 15 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 35: while (1)
+"35
+[e :U 352 ]
+[; ;main.c: 36: {
+"36
+{
+[; ;main.c: 37: read_date(&date);
+"37
+[e ( _read_date (1 &U _date ]
 [; ;main.c: 38: rtc_display(&date);
 "38
 [e ( _rtc_display (1 &U _date ]
-[; ;main.c: 39: cnt = 0;
+[; ;main.c: 39: _delay((unsigned long)((100)*(8000000/4000.0)));
 "39
-[e = _cnt -> -> 0 `i `uc ]
-[; ;main.c: 40: while(cnt < 5){
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "40
-[e $U 351  ]
-[e :U 352 ]
-{
-[; ;main.c: 41: rtc_display(&date);
-"41
-[e ( _rtc_display (1 &U _date ]
-[; ;main.c: 42: cnt++;
-"42
-[e ++ _cnt -> -> 1 `i `uc ]
-[; ;main.c: 43: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"43
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"44
 }
 [e :U 351 ]
-"40
-[e $ < -> _cnt `i -> 5 `i 352  ]
+"35
+[e $U 352  ]
 [e :U 353 ]
-[; ;main.c: 44: }
-[; ;main.c: 45: cnt = 0;
-"45
-[e = _cnt -> -> 0 `i `uc ]
-[; ;main.c: 47: while (1)
-"47
-[e :U 355 ]
-[; ;main.c: 48: {
-"48
-{
-[; ;main.c: 50: read_dates(&min, &sec);
-"50
-[e ( _read_dates (2 , &U _min &U _sec ]
-[; ;main.c: 52: rtc_display(&date);
-"52
-[e ( _rtc_display (1 &U _date ]
-[; ;main.c: 53: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"53
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"54
-}
-[e :U 354 ]
-"47
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 54: }
-[; ;main.c: 55: }
-"55
+[; ;main.c: 40: }
+[; ;main.c: 41: }
+"41
 [e :UE 350 ]
 }
-"59
+"45
 [v _rtc_display `(v ~T0 @X0 1 ef1`*S349 ]
 {
-[; ;main.c: 59: void rtc_display(struct Date *date){
+[; ;main.c: 45: void rtc_display(struct Date *date){
 [e :U _rtc_display ]
 [v _date `*S349 ~T0 @X0 1 r1 ]
 [f ]
-[v F2398 `uc ~T0 @X0 -> 0 `x s ]
-[i F2398
+[v F2393 `uc ~T0 @X0 -> 0 `x s ]
+[i F2393
 :U ..
-"60
+"46
 -> -> 255 `i `uc
 -> -> 255 `i `uc
 -> -> 255 `i `uc
@@ -2984,35 +2958,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _segments `uc ~T0 @X0 4  a ]
-[; ;main.c: 60: uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
-[e = _segments F2398 ]
-"62
+[; ;main.c: 46: uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
+[e = _segments F2393 ]
+"48
 [v _year `uc ~T0 @X0 1 a ]
-[; ;main.c: 62: uint8_t year = date->year;
+[; ;main.c: 48: uint8_t year = date->year;
 [e = _year . *U _date 0 ]
-"63
+"49
 [v _month `uc ~T0 @X0 1 a ]
-[; ;main.c: 63: uint8_t month =date->month;
+[; ;main.c: 49: uint8_t month = date->month;
 [e = _month . *U _date 1 ]
-[; ;main.c: 66: sec = sec+cnt;
-"66
-[e = _sec -> + -> _sec `i -> _cnt `i `uc ]
-[; ;main.c: 69: segments[0] = encode_dig(min / 10);
-"69
+"50
+[v _day `uc ~T0 @X0 1 a ]
+[; ;main.c: 50: uint8_t day = date->day;
+[e = _day . *U _date 2 ]
+"51
+[v _hour `uc ~T0 @X0 1 a ]
+[; ;main.c: 51: uint8_t hour = date->hour;
+[e = _hour . *U _date 3 ]
+"52
+[v _min `uc ~T0 @X0 1 a ]
+[; ;main.c: 52: uint8_t min = date->min;
+[e = _min . *U _date 4 ]
+"53
+[v _sec `uc ~T0 @X0 1 a ]
+[; ;main.c: 53: uint8_t sec = date->sec;
+[e = _sec . *U _date 5 ]
+[; ;main.c: 55: segments[0] = encode_dig(min / 10);
+"55
 [e = *U + &U _segments * -> -> -> 0 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> / -> _min `i -> 10 `i `uc ]
-[; ;main.c: 70: segments[1] = encode_dig(min % 10);
-"70
+[; ;main.c: 56: segments[1] = encode_dig(min % 10);
+"56
 [e = *U + &U _segments * -> -> -> 1 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> % -> _min `i -> 10 `i `uc ]
-[; ;main.c: 71: segments[2] = encode_dig(sec / 10);
-"71
+[; ;main.c: 57: segments[2] = encode_dig(sec / 10);
+"57
 [e = *U + &U _segments * -> -> -> 2 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> / -> _sec `i -> 10 `i `uc ]
-[; ;main.c: 72: segments[3] = encode_dig(sec % 10);
-"72
+[; ;main.c: 58: segments[3] = encode_dig(sec % 10);
+"58
 [e = *U + &U _segments * -> -> -> 3 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> % -> _sec `i -> 10 `i `uc ]
-[; ;main.c: 74: set_segments(segments, 4, 0);
-"74
+[; ;main.c: 60: set_segments(segments, 4, 0);
+"60
 [e ( _set_segments (3 , , -> &U _segments `*Cuc -> -> 4 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 75: }
-"75
-[e :UE 357 ]
+[; ;main.c: 61: }
+"61
+[e :UE 354 ]
 }

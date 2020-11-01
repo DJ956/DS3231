@@ -8,6 +8,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _write_byte `(v ~T0 @X0 0 ef1`uc ]
 "8
 [v _i2c_stop `(v ~T0 @X0 0 ef ]
+[v F38 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
+[v __delay `JF38 ~T0 @X0 0 e ]
+[p i __delay ]
+"9 i2c.h
+[v _i2c_repeated_start `(v ~T0 @X0 0 ef ]
 "12
 [v _recv_byte `(uc ~T0 @X0 0 ef1`uc ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
@@ -2810,13 +2816,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS3231.h: 28: };
 [; ;DS3231.h: 30: void write_date(struct Date *date);
 [; ;DS3231.h: 31: void read_date(struct Date *date);
-[; ;DS3231.h: 32: void read_dates(uint8_t *min, uint8_t *sec);
+[; ;DS3231.h: 32: uint8_t read_(uint8_t address);
 [; ;DS3231.h: 33: uint8_t bcd_2_decimal(uint8_t number);
 [; ;DS3231.h: 34: uint8_t decimal_2_bcd(uint8_t number);
 [; ;DS3231.h: 35: void rtc_display(struct Date *date);
-[; ;pin_manager.h: 106: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 118: void PIN_MANAGER_IOC(void);
-[; ;stdbool.h: 15: typedef unsigned char bool;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
 [; ;errno.h: 29: extern int errno;
 [; ;conio.h: 12: extern void init_uart(void);
 [; ;conio.h: 14: extern char getch(void);
@@ -2826,199 +2838,169 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;conio.h: 19: extern __bit kbhit(void);
 [; ;conio.h: 23: extern char * cgets(char *);
 [; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;pin_manager.h: 106: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 118: void PIN_MANAGER_IOC(void);
+[; ;stdbool.h: 15: typedef unsigned char bool;
 [; ;mcc.h: 69: void SYSTEM_Initialize(void);
 [; ;mcc.h: 82: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 94: void WDT_Initialize(void);
-"14 DS3231.c
+"15 DS3231.c
 [v _bcd_2_decimal `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;DS3231.c: 14: uint8_t bcd_2_decimal(uint8_t number){
+[; ;DS3231.c: 15: uint8_t bcd_2_decimal(uint8_t number){
 [e :U _bcd_2_decimal ]
 [v _number `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;DS3231.c: 15: return ((number >> 4) * 10 + (number & 0x0F));
-"15
-[e ) -> + * >> -> _number `i -> 4 `i -> 10 `i & -> _number `i -> 15 `i `uc ]
-[e $UE 350  ]
-[; ;DS3231.c: 16: }
+[; ;DS3231.c: 16: return ((number >> 4) * 10 + (number & 0x0F));
 "16
-[e :UE 350 ]
+[e ) -> + * >> -> _number `i -> 4 `i -> 10 `i & -> _number `i -> 15 `i `uc ]
+[e $UE 351  ]
+[; ;DS3231.c: 17: }
+"17
+[e :UE 351 ]
 }
-"18
+"19
 [v _decimal_2_bcd `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;DS3231.c: 18: uint8_t decimal_2_bcd(uint8_t number){
+[; ;DS3231.c: 19: uint8_t decimal_2_bcd(uint8_t number){
 [e :U _decimal_2_bcd ]
 [v _number `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;DS3231.c: 19: return (((number / 10) << 4) + (number % 10));
-"19
-[e ) -> + << / -> _number `i -> 10 `i -> 4 `i % -> _number `i -> 10 `i `uc ]
-[e $UE 351  ]
-[; ;DS3231.c: 20: }
+[; ;DS3231.c: 20: return (((number / 10) << 4) + (number % 10));
 "20
-[e :UE 351 ]
+[e ) -> + << / -> _number `i -> 10 `i -> 4 `i % -> _number `i -> 10 `i `uc ]
+[e $UE 352  ]
+[; ;DS3231.c: 21: }
+"21
+[e :UE 352 ]
 }
-"22
+"23
 [v _write_date `(v ~T0 @X0 1 ef1`*S349 ]
 {
-[; ;DS3231.c: 22: void write_date(struct Date *date){
+[; ;DS3231.c: 23: void write_date(struct Date *date){
 [e :U _write_date ]
 [v _date `*S349 ~T0 @X0 1 r1 ]
 [f ]
-[; ;DS3231.c: 23: i2c_start();
-"23
-[e ( _i2c_start ..  ]
-[; ;DS3231.c: 24: write_byte(0xD0);
+[; ;DS3231.c: 24: i2c_start();
 "24
-[e ( _write_byte (1 -> -> 208 `i `uc ]
-[; ;DS3231.c: 25: write_byte(0x00);
+[e ( _i2c_start ..  ]
+[; ;DS3231.c: 25: write_byte(0xD0);
 "25
+[e ( _write_byte (1 -> -> 208 `i `uc ]
+[; ;DS3231.c: 26: write_byte(0x00);
+"26
 [e ( _write_byte (1 -> -> 0 `i `uc ]
-[; ;DS3231.c: 27: write_byte(decimal_2_bcd(date->sec));
-"27
-[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 5 ]
-[; ;DS3231.c: 28: write_byte(decimal_2_bcd(date->min));
+[; ;DS3231.c: 28: write_byte(decimal_2_bcd(date->sec));
 "28
-[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 4 ]
-[; ;DS3231.c: 29: write_byte(decimal_2_bcd(date->hour));
+[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 5 ]
+[; ;DS3231.c: 29: write_byte(decimal_2_bcd(date->min));
 "29
-[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 3 ]
-[; ;DS3231.c: 30: write_byte(1);
+[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 4 ]
+[; ;DS3231.c: 30: write_byte(decimal_2_bcd(date->hour));
 "30
-[e ( _write_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 31: write_byte(decimal_2_bcd(date->day));
+[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 3 ]
+[; ;DS3231.c: 31: write_byte(1);
 "31
-[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 2 ]
-[; ;DS3231.c: 32: write_byte(decimal_2_bcd(date->month));
+[e ( _write_byte (1 -> -> 1 `i `uc ]
+[; ;DS3231.c: 32: write_byte(decimal_2_bcd(date->day));
 "32
-[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 1 ]
-[; ;DS3231.c: 33: write_byte(decimal_2_bcd(date->year));
+[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 2 ]
+[; ;DS3231.c: 33: write_byte(decimal_2_bcd(date->month));
 "33
-[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 0 ]
-[; ;DS3231.c: 34: i2c_stop();
+[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 1 ]
+[; ;DS3231.c: 34: write_byte(decimal_2_bcd(date->year));
 "34
+[e ( _write_byte (1 ( _decimal_2_bcd (1 . *U _date 0 ]
+[; ;DS3231.c: 35: i2c_stop();
+"35
 [e ( _i2c_stop ..  ]
-[; ;DS3231.c: 40: }
+[; ;DS3231.c: 40: _delay((unsigned long)((200)*(8000000/4000.0)));
 "40
-[e :UE 352 ]
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;DS3231.c: 41: }
+"41
+[e :UE 353 ]
 }
-"42
+"44
+[v _read_ `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;DS3231.c: 44: uint8_t read_(uint8_t address){
+[e :U _read_ ]
+[v _address `uc ~T0 @X0 1 r1 ]
+[f ]
+"45
+[v _data `uc ~T0 @X0 1 a ]
+[; ;DS3231.c: 45: uint8_t data;
+[; ;DS3231.c: 46: i2c_start();
+"46
+[e ( _i2c_start ..  ]
+[; ;DS3231.c: 47: write_byte(0xD0);
+"47
+[e ( _write_byte (1 -> -> 208 `i `uc ]
+[; ;DS3231.c: 48: write_byte(address);
+"48
+[e ( _write_byte (1 _address ]
+[; ;DS3231.c: 50: i2c_repeated_start();
+"50
+[e ( _i2c_repeated_start ..  ]
+[; ;DS3231.c: 52: write_byte(0xD0 | 0x01);
+"52
+[e ( _write_byte (1 -> | -> 208 `i -> 1 `i `uc ]
+[; ;DS3231.c: 53: data = bcd_2_decimal(recv_byte(1));
+"53
+[e = _data ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
+[; ;DS3231.c: 54: i2c_stop();
+"54
+[e ( _i2c_stop ..  ]
+[; ;DS3231.c: 56: return data;
+"56
+[e ) _data ]
+[e $UE 354  ]
+[; ;DS3231.c: 57: }
+"57
+[e :UE 354 ]
+}
+"59
 [v _read_date `(v ~T0 @X0 1 ef1`*S349 ]
 {
-[; ;DS3231.c: 42: void read_date(struct Date *date){
+[; ;DS3231.c: 59: void read_date(struct Date *date){
 [e :U _read_date ]
 [v _date `*S349 ~T0 @X0 1 r1 ]
 [f ]
-[; ;DS3231.c: 43: i2c_start();
-"43
-[e ( _i2c_start ..  ]
-[; ;DS3231.c: 44: write_byte(0xD0);
-"44
-[e ( _write_byte (1 -> -> 208 `i `uc ]
-[; ;DS3231.c: 45: write_byte(0);
-"45
-[e ( _write_byte (1 -> -> 0 `i `uc ]
-[; ;DS3231.c: 46: i2c_stop();
-"46
-[e ( _i2c_stop ..  ]
-[; ;DS3231.c: 48: i2c_start();
-"48
-[e ( _i2c_start ..  ]
-[; ;DS3231.c: 49: write_byte(0xD0 | 0x01);
-"49
-[e ( _write_byte (1 -> | -> 208 `i -> 1 `i `uc ]
-[; ;DS3231.c: 51: date->sec = bcd_2_decimal(recv_byte(1));
-"51
-[e = . *U _date 5 ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 52: date->min = bcd_2_decimal(recv_byte(1));
-"52
-[e = . *U _date 4 ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 53: date->hour = bcd_2_decimal(recv_byte(1));
-"53
-[e = . *U _date 3 ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 54: recv_byte(1);
-"54
-[e ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 55: date->day = bcd_2_decimal(recv_byte(1));
-"55
-[e = . *U _date 2 ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 56: date->month = bcd_2_decimal(recv_byte(1));
-"56
-[e = . *U _date 1 ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 57: date->year = bcd_2_decimal(recv_byte(0));
-"57
-[e = . *U _date 0 ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 0 `i `uc ]
-[; ;DS3231.c: 59: i2c_stop();
-"59
-[e ( _i2c_stop ..  ]
-[; ;DS3231.c: 63: }
+[; ;DS3231.c: 62: date->year = read_(6);
+"62
+[e = . *U _date 0 ( _read_ (1 -> -> 6 `i `uc ]
+[; ;DS3231.c: 63: date->month = read_(5);
 "63
-[e :UE 353 ]
-}
+[e = . *U _date 1 ( _read_ (1 -> -> 5 `i `uc ]
+[; ;DS3231.c: 64: date->day = read_(4);
+"64
+[e = . *U _date 2 ( _read_ (1 -> -> 4 `i `uc ]
+[; ;DS3231.c: 65: read_(3);
 "65
-[v _read_dates `(v ~T0 @X0 1 ef2`*uc`*uc ]
-{
-[; ;DS3231.c: 65: void read_dates(uint8_t *min, uint8_t *sec){
-[e :U _read_dates ]
-[v _min `*uc ~T0 @X0 1 r1 ]
-[v _sec `*uc ~T0 @X0 1 r2 ]
-[f ]
-[; ;DS3231.c: 66: i2c_start();
+[e ( _read_ (1 -> -> 3 `i `uc ]
+[; ;DS3231.c: 66: date->hour = read_(2);
 "66
-[e ( _i2c_start ..  ]
-[; ;DS3231.c: 67: write_byte(0xD0);
+[e = . *U _date 3 ( _read_ (1 -> -> 2 `i `uc ]
+[; ;DS3231.c: 67: date->min = read_(1);
 "67
-[e ( _write_byte (1 -> -> 208 `i `uc ]
-[; ;DS3231.c: 68: write_byte(0);
+[e = . *U _date 4 ( _read_ (1 -> -> 1 `i `uc ]
+[; ;DS3231.c: 68: date->sec = read_(0);
 "68
-[e ( _write_byte (1 -> -> 0 `i `uc ]
-[; ;DS3231.c: 69: i2c_stop();
-"69
-[e ( _i2c_stop ..  ]
-[; ;DS3231.c: 71: i2c_start();
-"71
-[e ( _i2c_start ..  ]
-[; ;DS3231.c: 72: write_byte(0xD0 | 0x01);
-"72
-[e ( _write_byte (1 -> | -> 208 `i -> 1 `i `uc ]
-[; ;DS3231.c: 74: *sec = bcd_2_decimal(recv_byte(1));
-"74
-[e = *U _sec ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 75: *min = bcd_2_decimal(recv_byte(1));
-"75
-[e = *U _min ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 76: bcd_2_decimal(recv_byte(1));
-"76
-[e ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 77: recv_byte(1);
-"77
-[e ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 78: bcd_2_decimal(recv_byte(1));
-"78
-[e ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 79: bcd_2_decimal(recv_byte(1));
-"79
-[e ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 80: bcd_2_decimal(recv_byte(1));
-"80
-[e ( _bcd_2_decimal (1 ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 82: i2c_stop();
-"82
-[e ( _i2c_stop ..  ]
-[; ;DS3231.c: 84: i2c_start();
-"84
-[e ( _i2c_start ..  ]
-[; ;DS3231.c: 85: write_byte(0xD0 | 0x01);
-"85
-[e ( _write_byte (1 -> | -> 208 `i -> 1 `i `uc ]
-[; ;DS3231.c: 86: recv_byte(1);
-"86
-[e ( _recv_byte (1 -> -> 1 `i `uc ]
-[; ;DS3231.c: 87: i2c_stop();
-"87
-[e ( _i2c_stop ..  ]
-[; ;DS3231.c: 89: }
-"89
-[e :UE 354 ]
+[e = . *U _date 5 ( _read_ (1 -> -> 0 `i `uc ]
+[; ;DS3231.c: 97: }
+"97
+[e :UE 355 ]
 }

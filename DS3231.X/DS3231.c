@@ -7,6 +7,7 @@
 
 #include "i2c.h"
 #include "DS3231.h"
+#include <stdio.h>
 
 #include "mcc_generated_files/mcc.h"
 
@@ -36,17 +37,46 @@ void write_date(struct Date *date){
     // printf("[W] year:%d, month:%d day:%d h:%d m:%d s:%d\r\n",
     //        date->year, date->month, date->day, date->hour, date->min, date->sec);
     
-    //__delay_ms(200);
+    __delay_ms(200);
+}
+
+
+uint8_t read_(uint8_t address){
+    uint8_t data;
+    i2c_start();
+    write_byte(RTC_ADR);
+    write_byte(address);
+    
+    i2c_repeated_start();
+    
+    write_byte(RTC_ADR | 0x01);
+    data = bcd_2_decimal(recv_byte(1));
+    i2c_stop();
+    
+    return data;
 }
 
 void read_date(struct Date *date){
+    
+    
+    date->year = read_(6);
+    date->month = read_(5);
+    date->day = read_(4);
+    read_(3);
+    date->hour = read_(2);
+    date->min = read_(1);
+    date->sec = read_(0);
+    
+    /*
     i2c_start();
     write_byte(RTC_ADR);    
     write_byte(0);
-    i2c_stop();
+    //i2c_stop();
     
-    i2c_start();
-    write_byte(RTC_ADR | 0x01);
+    i2c_repeated_start();
+    
+    //i2c_start();
+    write_byte(RTC_ADR | 0x01);    
     
     date->sec = bcd_2_decimal(recv_byte(1));
     date->min = bcd_2_decimal(recv_byte(1));
@@ -57,34 +87,12 @@ void read_date(struct Date *date){
     date->year = bcd_2_decimal(recv_byte(0));    
     
     i2c_stop();
-     
-    //printf("[R] year:%d, month:%d day:%d h:%d m:%d s:%d\r\n",
-    //        year, month, day, hour, min, sec);
-}
-
-void read_dates(uint8_t *min, uint8_t *sec){
-    i2c_start();
-    write_byte(RTC_ADR);    
-    write_byte(0);
-    i2c_stop();
+    __delay_ms(50);
+    */
     
-    i2c_start();
-    write_byte(RTC_ADR | 0x01);
-    
-    *sec = bcd_2_decimal(recv_byte(1));
-    *min = bcd_2_decimal(recv_byte(1));
-    bcd_2_decimal(recv_byte(1));
-    recv_byte(1);
-    bcd_2_decimal(recv_byte(1));
-    bcd_2_decimal(recv_byte(1));
-    bcd_2_decimal(recv_byte(1));    
-    
-    i2c_stop();
-    
-    i2c_start();
-    write_byte(RTC_ADR | 0x01);
-    recv_byte(1);
-    i2c_stop();
-    
+    /*    
+    printf("[R] year:%d, month:%d day:%d h:%d m:%d s:%d\r\n",
+            date->year, date->month, date->day, date->hour, date->min, date->sec);
+    */
 }
 

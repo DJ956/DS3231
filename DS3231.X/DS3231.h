@@ -15,9 +15,9 @@ extern "C" {
 #include <xc.h>
 #include <stdint.h>
     
-//#define RTC_ADR 0x68
 #define RTC_ADR 0xD0
-
+//#define RTC_ADR 0x68
+    
 struct Date{
     uint8_t year;
     uint8_t month;
@@ -29,7 +29,7 @@ struct Date{
 
 void write_date(struct Date *date);
 void read_date(struct Date *date);
-void read_dates(uint8_t *min, uint8_t *sec);
+uint8_t read_(uint8_t address);
 uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
 void rtc_display(struct Date *date);

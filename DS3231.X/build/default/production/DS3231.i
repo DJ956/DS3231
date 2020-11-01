@@ -4314,19 +4314,29 @@ uint8_t sec;
 
 void write_date(struct Date *date);
 void read_date(struct Date *date);
-void read_dates(uint8_t *min, uint8_t *sec);
+uint8_t read_(uint8_t address);
 uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
 void rtc_display(struct Date *date);
 
-# 106 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
+# 4 "C:\Program Files\Microchip\xc8\v2.30\pic\include\__size_t.h"
+typedef unsigned size_t;
 
-# 118
-void PIN_MANAGER_IOC(void);
+# 7 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdarg.h"
+typedef void * va_list[1];
 
-# 15 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
 
 # 29 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\errno.h"
 extern int errno;
@@ -4345,6 +4355,42 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
+# 88 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 106 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+
+# 118
+void PIN_MANAGER_IOC(void);
+
+# 15 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdbool.h"
+typedef unsigned char bool;
+
 # 69 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
@@ -4354,7 +4400,7 @@ void OSCILLATOR_Initialize(void);
 # 94
 void WDT_Initialize(void);
 
-# 14 "DS3231.c"
+# 15 "DS3231.c"
 uint8_t bcd_2_decimal(uint8_t number){
 return ((number >> 4) * 10 + (number & 0x0F));
 }
@@ -4377,55 +4423,39 @@ write_byte(decimal_2_bcd(date->month));
 write_byte(decimal_2_bcd(date->year));
 i2c_stop();
 
-# 40
+
+
+
+_delay((unsigned long)((200)*(8000000/4000.0)));
+}
+
+
+uint8_t read_(uint8_t address){
+uint8_t data;
+i2c_start();
+write_byte(0xD0);
+write_byte(address);
+
+i2c_repeated_start();
+
+write_byte(0xD0 | 0x01);
+data = bcd_2_decimal(recv_byte(1));
+i2c_stop();
+
+return data;
 }
 
 void read_date(struct Date *date){
-i2c_start();
-write_byte(0xD0);
-write_byte(0);
-i2c_stop();
-
-i2c_start();
-write_byte(0xD0 | 0x01);
-
-date->sec = bcd_2_decimal(recv_byte(1));
-date->min = bcd_2_decimal(recv_byte(1));
-date->hour = bcd_2_decimal(recv_byte(1));
-recv_byte(1);
-date->day = bcd_2_decimal(recv_byte(1));
-date->month = bcd_2_decimal(recv_byte(1));
-date->year = bcd_2_decimal(recv_byte(0));
-
-i2c_stop();
 
 
+date->year = read_(6);
+date->month = read_(5);
+date->day = read_(4);
+read_(3);
+date->hour = read_(2);
+date->min = read_(1);
+date->sec = read_(0);
 
-}
-
-void read_dates(uint8_t *min, uint8_t *sec){
-i2c_start();
-write_byte(0xD0);
-write_byte(0);
-i2c_stop();
-
-i2c_start();
-write_byte(0xD0 | 0x01);
-
-*sec = bcd_2_decimal(recv_byte(1));
-*min = bcd_2_decimal(recv_byte(1));
-bcd_2_decimal(recv_byte(1));
-recv_byte(1);
-bcd_2_decimal(recv_byte(1));
-bcd_2_decimal(recv_byte(1));
-bcd_2_decimal(recv_byte(1));
-
-i2c_stop();
-
-i2c_start();
-write_byte(0xD0 | 0x01);
-recv_byte(1);
-i2c_stop();
-
+# 97
 }
 
