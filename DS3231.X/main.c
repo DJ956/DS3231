@@ -13,7 +13,6 @@ void main(void)
     TRISB5 = 1;
     WPUB = 0x24;
     
-    //SSP2ADD = _XTAL_FREQ / (4 * (100000)) - 1;
     SSP2ADD = 0x13;
     SSP2CON1 = 0x28;
     SSP2CON2 = 0x0;
@@ -27,7 +26,7 @@ void main(void)
     date.min = 38;
     date.sec = 24;
     
-    write_date(&date);
+    //write_date(&date);
     
     set_brigthness(0x0f, 1);
 
@@ -36,11 +35,10 @@ void main(void)
     {
         read_date(&date);        
         rtc_display(&date);
+                
         __delay_ms(100);        
     }
 }
-
-
 
 void rtc_display(struct Date *date){
     uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
@@ -52,10 +50,10 @@ void rtc_display(struct Date *date){
     uint8_t min = date->min;
     uint8_t sec = date->sec;
     
-    segments[0] = encode_dig(min / 10);
-    segments[1] = encode_dig(min % 10);    
-    segments[2] = encode_dig(sec / 10);
-    segments[3] = encode_dig(sec % 10);
+    segments[0] = encode_digit(min / 10);
+    segments[1] = encode_digit(min % 10);    
+    segments[2] = encode_digit(sec / 10);
+    segments[3] = encode_digit(sec % 10);    
     
     set_segments(segments, 4, 0);
 }

@@ -4327,7 +4327,7 @@ void OSCILLATOR_Initialize(void);
 # 94
 void WDT_Initialize(void);
 
-# 9 "TM1637.h"
+# 12 "TM1637.h"
 void bit_delay();
 void start();
 void stop();
@@ -4335,9 +4335,9 @@ void set_brigthness(uint8_t brightness, uint8_t on);
 uint8_t write_data(uint8_t b);
 void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
 void clear();
-uint8_t encode_dig(uint8_t digit);
+uint8_t encode_digit(uint8_t digit);
 
-# 21 "DS3231.h"
+# 20 "DS3231.h"
 struct Date{
 uint8_t year;
 uint8_t month;
@@ -4364,7 +4364,6 @@ TRISB2 = 1;
 TRISB5 = 1;
 WPUB = 0x24;
 
-
 SSP2ADD = 0x13;
 SSP2CON1 = 0x28;
 SSP2CON2 = 0x0;
@@ -4378,7 +4377,7 @@ date.hour = 10;
 date.min = 38;
 date.sec = 24;
 
-write_date(&date);
+
 
 set_brigthness(0x0f, 1);
 
@@ -4387,11 +4386,10 @@ while (1)
 {
 read_date(&date);
 rtc_display(&date);
+
 _delay((unsigned long)((100)*(8000000/4000.0)));
 }
 }
-
-
 
 void rtc_display(struct Date *date){
 uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
@@ -4403,10 +4401,10 @@ uint8_t hour = date->hour;
 uint8_t min = date->min;
 uint8_t sec = date->sec;
 
-segments[0] = encode_dig(min / 10);
-segments[1] = encode_dig(min % 10);
-segments[2] = encode_dig(sec / 10);
-segments[3] = encode_dig(sec % 10);
+segments[0] = encode_digit(min / 10);
+segments[1] = encode_digit(min % 10);
+segments[2] = encode_digit(sec / 10);
+segments[3] = encode_digit(sec % 10);
 
 set_segments(segments, 4, 0);
 }

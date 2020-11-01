@@ -6,6 +6,9 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+#define ENABLE_COLON 1
+#define DISABLE_COLON 0
+
 void bit_delay();
 void start();
 void stop();
@@ -13,7 +16,7 @@ void set_brigthness(uint8_t brightness, uint8_t on);
 uint8_t write_data(uint8_t b);
 void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
 void clear();
-uint8_t encode_dig(uint8_t digit);
+uint8_t encode_digit(uint8_t digit);
 
 #ifdef	__cplusplus
 extern "C" {

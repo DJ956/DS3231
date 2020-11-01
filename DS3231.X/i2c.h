@@ -7,10 +7,8 @@ void i2c_wait();
 void i2c_start();
 void i2c_stop();
 void i2c_repeated_start();
-void write_byte(uint8_t data);
-void i2c_cmd(uint8_t address, uint8_t reg, uint8_t data);
-uint8_t recv_byte(uint8_t ack);
-void recv_data(uint8_t address, uint8_t *buffer, uint8_t cnt);
+void i2c_write(uint8_t data);
+uint8_t i2c_read(uint8_t ack);
 
 #ifdef	__cplusplus
 extern "C" {

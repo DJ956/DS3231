@@ -7,92 +7,81 @@
 
 #include "i2c.h"
 #include "DS3231.h"
-#include <stdio.h>
 
 #include "mcc_generated_files/mcc.h"
 
 
+/**
+ * RTC format to number
+ * @param number
+ * @return 
+ */
 uint8_t bcd_2_decimal(uint8_t number){
     return ((number >> 4) * 10 + (number & 0x0F));
 }
 
+/**
+ * number to RCT format
+ * @param number
+ * @return 
+ */
 uint8_t decimal_2_bcd(uint8_t number){
     return (((number / 10) << 4) + (number % 10));
 }
 
+/**
+ * Write date to RTC
+ * @param date
+ */
 void write_date(struct Date *date){
     i2c_start();
-    write_byte(RTC_ADR);
-    write_byte(0x00);
+    i2c_write(RTC_ADR);
+    i2c_write(0x00);
 
-    write_byte(decimal_2_bcd(date->sec));
-    write_byte(decimal_2_bcd(date->min));
-    write_byte(decimal_2_bcd(date->hour));
-    write_byte(1);
-    write_byte(decimal_2_bcd(date->day));
-    write_byte(decimal_2_bcd(date->month));
-    write_byte(decimal_2_bcd(date->year));
+    i2c_write(decimal_2_bcd(date->sec));        //write sec
+    i2c_write(decimal_2_bcd(date->min));        //write min
+    i2c_write(decimal_2_bcd(date->hour));       //write hour
+    i2c_write(1);                               //write day_of_week
+    i2c_write(decimal_2_bcd(date->day));        //write day
+    i2c_write(decimal_2_bcd(date->month));      //write month
+    i2c_write(decimal_2_bcd(date->year));       //write year
     i2c_stop();
-    
-    // printf("[W] year:%d, month:%d day:%d h:%d m:%d s:%d\r\n",
-    //        date->year, date->month, date->day, date->hour, date->min, date->sec);
     
     __delay_ms(200);
 }
 
 
-uint8_t read_(uint8_t address){
+/**
+ * Read data from RTC
+ * @param address (0:sec, 1:min, 2:hour, 3:day_week, 4:day, 5:month, 6:yaer)
+ * @return 
+ */
+uint8_t _read(uint8_t address){
     uint8_t data;
     i2c_start();
-    write_byte(RTC_ADR);
-    write_byte(address);
+    i2c_write(RTC_ADR);
+    i2c_write(address);
     
     i2c_repeated_start();
     
-    write_byte(RTC_ADR | 0x01);
-    data = bcd_2_decimal(recv_byte(1));
+    i2c_write(RTC_ADR | 0x01);
+    data = bcd_2_decimal(i2c_read(1));
     i2c_stop();
     
     return data;
 }
 
-void read_date(struct Date *date){
-    
-    
-    date->year = read_(6);
-    date->month = read_(5);
-    date->day = read_(4);
-    read_(3);
-    date->hour = read_(2);
-    date->min = read_(1);
-    date->sec = read_(0);
-    
-    /*
-    i2c_start();
-    write_byte(RTC_ADR);    
-    write_byte(0);
-    //i2c_stop();
-    
-    i2c_repeated_start();
-    
-    //i2c_start();
-    write_byte(RTC_ADR | 0x01);    
-    
-    date->sec = bcd_2_decimal(recv_byte(1));
-    date->min = bcd_2_decimal(recv_byte(1));
-    date->hour = bcd_2_decimal(recv_byte(1));
-    recv_byte(1);
-    date->day = bcd_2_decimal(recv_byte(1));
-    date->month = bcd_2_decimal(recv_byte(1));
-    date->year = bcd_2_decimal(recv_byte(0));    
-    
-    i2c_stop();
-    __delay_ms(50);
-    */
-    
-    /*    
-    printf("[R] year:%d, month:%d day:%d h:%d m:%d s:%d\r\n",
-            date->year, date->month, date->day, date->hour, date->min, date->sec);
-    */
+/**
+ * Read date from RTC & update date
+ * @param date
+ */
+void read_date(struct Date *date){ 
+    date->year = _read(6);      //read year(necessary add 2000)
+    date->month = _read(5);     //read month
+    date->day = _read(4);       //read day
+    _read(3);                   //read day_of_week
+    date->hour = _read(2);      //read hour
+    date->min = _read(1);       //read min
+    date->sec = _read(0);       //read sec
 }
 

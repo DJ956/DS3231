@@ -27,6 +27,7 @@ uint8_t segdata[] = {
    0x6F  // 9 
 };
 
+
 void bit_delay(void){
     //__delay_ms(10);
 }
@@ -131,6 +132,7 @@ void clear(){
 	set_segments(data, 4, 0);
 }
 
-uint8_t encode_dig(uint8_t digit){
+
+uint8_t encode_digit(uint8_t digit){        
     return segdata[digit & 0x0f];
 }

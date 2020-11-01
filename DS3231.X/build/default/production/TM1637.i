@@ -4292,7 +4292,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 9 "TM1637.h"
+# 12 "TM1637.h"
 void bit_delay();
 void start();
 void stop();
@@ -4300,7 +4300,7 @@ void set_brigthness(uint8_t brightness, uint8_t on);
 uint8_t write_data(uint8_t b);
 void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
 void clear();
-uint8_t encode_dig(uint8_t digit);
+uint8_t encode_digit(uint8_t digit);
 
 # 106 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
@@ -4352,6 +4352,7 @@ uint8_t segdata[] = {
 0x7F,
 0x6F
 };
+
 
 void bit_delay(void){
 
@@ -4457,6 +4458,7 @@ uint8_t data[] = { 0, 0, 0, 0 };
 set_segments(data, 4, 0);
 }
 
-uint8_t encode_dig(uint8_t digit){
+
+uint8_t encode_digit(uint8_t digit){
 return segdata[digit & 0x0f];
 }

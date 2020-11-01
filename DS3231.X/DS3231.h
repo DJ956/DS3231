@@ -16,7 +16,6 @@ extern "C" {
 #include <stdint.h>
     
 #define RTC_ADR 0xD0
-//#define RTC_ADR 0x68
     
 struct Date{
     uint8_t year;

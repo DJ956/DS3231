@@ -16,24 +16,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSP2CON2 `Vuc ~T0 @X0 0 e@542 ]
 "4331
 [v _SSP2STAT `Vuc ~T0 @X0 0 e@540 ]
-"21 DS3231.h
+"20 DS3231.h
 [s S349 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S349 Date year month day hour min sec ]
-"30
-[v _write_date `(v ~T0 @X0 0 ef1`*S349 ]
-"12 TM1637.h
+"15 TM1637.h
 [v _set_brigthness `(v ~T0 @X0 0 ef2`uc`uc ]
-"31 DS3231.h
+"30 DS3231.h
 [v _read_date `(v ~T0 @X0 0 ef1`*S349 ]
-"35
+"34
 [v _rtc_display `(v ~T0 @X0 0 ef1`*S349 ]
 [v F38 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
 [v __delay `JF38 ~T0 @X0 0 e ]
 [p i __delay ]
-"16 TM1637.h
-[v _encode_dig `(uc ~T0 @X0 0 ef1`uc ]
-"14
+"19 TM1637.h
+[v _encode_digit `(uc ~T0 @X0 0 ef1`uc ]
+"17
 [v _set_segments `(v ~T0 @X0 0 ef3`*Cuc`uc`uc ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
@@ -2832,28 +2830,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 69: void SYSTEM_Initialize(void);
 [; ;mcc.h: 82: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 94: void WDT_Initialize(void);
-[; ;TM1637.h: 9: void bit_delay();
-[; ;TM1637.h: 10: void start();
-[; ;TM1637.h: 11: void stop();
-[; ;TM1637.h: 12: void set_brigthness(uint8_t brightness, uint8_t on);
-[; ;TM1637.h: 13: uint8_t write_data(uint8_t b);
-[; ;TM1637.h: 14: void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
-[; ;TM1637.h: 15: void clear();
-[; ;TM1637.h: 16: uint8_t encode_dig(uint8_t digit);
-[; ;DS3231.h: 21: struct Date{
-[; ;DS3231.h: 22: uint8_t year;
-[; ;DS3231.h: 23: uint8_t month;
-[; ;DS3231.h: 24: uint8_t day;
-[; ;DS3231.h: 25: uint8_t hour;
-[; ;DS3231.h: 26: uint8_t min;
-[; ;DS3231.h: 27: uint8_t sec;
-[; ;DS3231.h: 28: };
-[; ;DS3231.h: 30: void write_date(struct Date *date);
-[; ;DS3231.h: 31: void read_date(struct Date *date);
-[; ;DS3231.h: 32: uint8_t read_(uint8_t address);
-[; ;DS3231.h: 33: uint8_t bcd_2_decimal(uint8_t number);
-[; ;DS3231.h: 34: uint8_t decimal_2_bcd(uint8_t number);
-[; ;DS3231.h: 35: void rtc_display(struct Date *date);
+[; ;TM1637.h: 12: void bit_delay();
+[; ;TM1637.h: 13: void start();
+[; ;TM1637.h: 14: void stop();
+[; ;TM1637.h: 15: void set_brigthness(uint8_t brightness, uint8_t on);
+[; ;TM1637.h: 16: uint8_t write_data(uint8_t b);
+[; ;TM1637.h: 17: void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
+[; ;TM1637.h: 18: void clear();
+[; ;TM1637.h: 19: uint8_t encode_digit(uint8_t digit);
+[; ;DS3231.h: 20: struct Date{
+[; ;DS3231.h: 21: uint8_t year;
+[; ;DS3231.h: 22: uint8_t month;
+[; ;DS3231.h: 23: uint8_t day;
+[; ;DS3231.h: 24: uint8_t hour;
+[; ;DS3231.h: 25: uint8_t min;
+[; ;DS3231.h: 26: uint8_t sec;
+[; ;DS3231.h: 27: };
+[; ;DS3231.h: 29: void write_date(struct Date *date);
+[; ;DS3231.h: 30: void read_date(struct Date *date);
+[; ;DS3231.h: 31: uint8_t read_(uint8_t address);
+[; ;DS3231.h: 32: uint8_t bcd_2_decimal(uint8_t number);
+[; ;DS3231.h: 33: uint8_t decimal_2_bcd(uint8_t number);
+[; ;DS3231.h: 34: void rtc_display(struct Date *date);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "7 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -2875,56 +2873,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 14: WPUB = 0x24;
 "14
 [e = _WPUB -> -> 36 `i `uc ]
-[; ;main.c: 17: SSP2ADD = 0x13;
-"17
+[; ;main.c: 16: SSP2ADD = 0x13;
+"16
 [e = _SSP2ADD -> -> 19 `i `uc ]
-[; ;main.c: 18: SSP2CON1 = 0x28;
-"18
+[; ;main.c: 17: SSP2CON1 = 0x28;
+"17
 [e = _SSP2CON1 -> -> 40 `i `uc ]
-[; ;main.c: 19: SSP2CON2 = 0x0;
-"19
+[; ;main.c: 18: SSP2CON2 = 0x0;
+"18
 [e = _SSP2CON2 -> -> 0 `i `uc ]
-[; ;main.c: 20: SSP2STAT = 0;
-"20
+[; ;main.c: 19: SSP2STAT = 0;
+"19
 [e = _SSP2STAT -> -> 0 `i `uc ]
-"22
+"21
 [v _date `S349 ~T0 @X0 1 a ]
-[; ;main.c: 22: struct Date date;
-[; ;main.c: 23: date.year = 20;
-"23
+[; ;main.c: 21: struct Date date;
+[; ;main.c: 22: date.year = 20;
+"22
 [e = . _date 0 -> -> 20 `i `uc ]
-[; ;main.c: 24: date.month = 11;
-"24
+[; ;main.c: 23: date.month = 11;
+"23
 [e = . _date 1 -> -> 11 `i `uc ]
-[; ;main.c: 25: date.day = 1;
-"25
+[; ;main.c: 24: date.day = 1;
+"24
 [e = . _date 2 -> -> 1 `i `uc ]
-[; ;main.c: 26: date.hour = 10;
-"26
+[; ;main.c: 25: date.hour = 10;
+"25
 [e = . _date 3 -> -> 10 `i `uc ]
-[; ;main.c: 27: date.min = 38;
-"27
+[; ;main.c: 26: date.min = 38;
+"26
 [e = . _date 4 -> -> 38 `i `uc ]
-[; ;main.c: 28: date.sec = 24;
-"28
+[; ;main.c: 27: date.sec = 24;
+"27
 [e = . _date 5 -> -> 24 `i `uc ]
-[; ;main.c: 30: write_date(&date);
-"30
-[e ( _write_date (1 &U _date ]
-[; ;main.c: 32: set_brigthness(0x0f, 1);
-"32
+[; ;main.c: 31: set_brigthness(0x0f, 1);
+"31
 [e ( _set_brigthness (2 , -> -> 15 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 35: while (1)
-"35
+[; ;main.c: 34: while (1)
+"34
 [e :U 352 ]
-[; ;main.c: 36: {
-"36
+[; ;main.c: 35: {
+"35
 {
-[; ;main.c: 37: read_date(&date);
-"37
+[; ;main.c: 36: read_date(&date);
+"36
 [e ( _read_date (1 &U _date ]
-[; ;main.c: 38: rtc_display(&date);
-"38
+[; ;main.c: 37: rtc_display(&date);
+"37
 [e ( _rtc_display (1 &U _date ]
 [; ;main.c: 39: _delay((unsigned long)((100)*(8000000/4000.0)));
 "39
@@ -2932,7 +2927,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "40
 }
 [e :U 351 ]
-"35
+"34
 [e $U 352  ]
 [e :U 353 ]
 [; ;main.c: 40: }
@@ -2940,17 +2935,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41
 [e :UE 350 ]
 }
-"45
+"43
 [v _rtc_display `(v ~T0 @X0 1 ef1`*S349 ]
 {
-[; ;main.c: 45: void rtc_display(struct Date *date){
+[; ;main.c: 43: void rtc_display(struct Date *date){
 [e :U _rtc_display ]
 [v _date `*S349 ~T0 @X0 1 r1 ]
 [f ]
 [v F2393 `uc ~T0 @X0 -> 0 `x s ]
 [i F2393
 :U ..
-"46
+"44
 -> -> 255 `i `uc
 -> -> 255 `i `uc
 -> -> 255 `i `uc
@@ -2958,48 +2953,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _segments `uc ~T0 @X0 4  a ]
-[; ;main.c: 46: uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
+[; ;main.c: 44: uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
 [e = _segments F2393 ]
-"48
+"46
 [v _year `uc ~T0 @X0 1 a ]
-[; ;main.c: 48: uint8_t year = date->year;
+[; ;main.c: 46: uint8_t year = date->year;
 [e = _year . *U _date 0 ]
-"49
+"47
 [v _month `uc ~T0 @X0 1 a ]
-[; ;main.c: 49: uint8_t month = date->month;
+[; ;main.c: 47: uint8_t month = date->month;
 [e = _month . *U _date 1 ]
-"50
+"48
 [v _day `uc ~T0 @X0 1 a ]
-[; ;main.c: 50: uint8_t day = date->day;
+[; ;main.c: 48: uint8_t day = date->day;
 [e = _day . *U _date 2 ]
-"51
+"49
 [v _hour `uc ~T0 @X0 1 a ]
-[; ;main.c: 51: uint8_t hour = date->hour;
+[; ;main.c: 49: uint8_t hour = date->hour;
 [e = _hour . *U _date 3 ]
-"52
+"50
 [v _min `uc ~T0 @X0 1 a ]
-[; ;main.c: 52: uint8_t min = date->min;
+[; ;main.c: 50: uint8_t min = date->min;
 [e = _min . *U _date 4 ]
-"53
+"51
 [v _sec `uc ~T0 @X0 1 a ]
-[; ;main.c: 53: uint8_t sec = date->sec;
+[; ;main.c: 51: uint8_t sec = date->sec;
 [e = _sec . *U _date 5 ]
-[; ;main.c: 55: segments[0] = encode_dig(min / 10);
+[; ;main.c: 53: segments[0] = encode_digit(min / 10);
+"53
+[e = *U + &U _segments * -> -> -> 0 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_digit (1 -> / -> _min `i -> 10 `i `uc ]
+[; ;main.c: 54: segments[1] = encode_digit(min % 10);
+"54
+[e = *U + &U _segments * -> -> -> 1 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_digit (1 -> % -> _min `i -> 10 `i `uc ]
+[; ;main.c: 55: segments[2] = encode_digit(sec / 10);
 "55
-[e = *U + &U _segments * -> -> -> 0 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> / -> _min `i -> 10 `i `uc ]
-[; ;main.c: 56: segments[1] = encode_dig(min % 10);
+[e = *U + &U _segments * -> -> -> 2 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_digit (1 -> / -> _sec `i -> 10 `i `uc ]
+[; ;main.c: 56: segments[3] = encode_digit(sec % 10);
 "56
-[e = *U + &U _segments * -> -> -> 1 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> % -> _min `i -> 10 `i `uc ]
-[; ;main.c: 57: segments[2] = encode_dig(sec / 10);
-"57
-[e = *U + &U _segments * -> -> -> 2 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> / -> _sec `i -> 10 `i `uc ]
-[; ;main.c: 58: segments[3] = encode_dig(sec % 10);
+[e = *U + &U _segments * -> -> -> 3 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_digit (1 -> % -> _sec `i -> 10 `i `uc ]
+[; ;main.c: 58: set_segments(segments, 4, 0);
 "58
-[e = *U + &U _segments * -> -> -> 3 `i `ui `ux -> -> # *U &U _segments `ui `ux ( _encode_dig (1 -> % -> _sec `i -> 10 `i `uc ]
-[; ;main.c: 60: set_segments(segments, 4, 0);
-"60
 [e ( _set_segments (3 , , -> &U _segments `*Cuc -> -> 4 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 61: }
-"61
+[; ;main.c: 59: }
+"59
 [e :UE 354 ]
 }
