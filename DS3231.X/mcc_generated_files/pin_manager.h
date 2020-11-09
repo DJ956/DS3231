@@ -79,6 +79,34 @@
 #define CLK_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
 #define CLK_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
 
+// get/set CLK_M aliases
+#define CLK_M_TRIS                 TRISAbits.TRISA1
+#define CLK_M_LAT                  LATAbits.LATA1
+#define CLK_M_PORT                 PORTAbits.RA1
+#define CLK_M_ANS                  ANSELAbits.ANSA1
+#define CLK_M_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
+#define CLK_M_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
+#define CLK_M_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
+#define CLK_M_GetValue()           PORTAbits.RA1
+#define CLK_M_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
+#define CLK_M_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
+#define CLK_M_SetAnalogMode()      do { ANSELAbits.ANSA1 = 1; } while(0)
+#define CLK_M_SetDigitalMode()     do { ANSELAbits.ANSA1 = 0; } while(0)
+
+// get/set DIO_M aliases
+#define DIO_M_TRIS                 TRISAbits.TRISA2
+#define DIO_M_LAT                  LATAbits.LATA2
+#define DIO_M_PORT                 PORTAbits.RA2
+#define DIO_M_ANS                  ANSELAbits.ANSA2
+#define DIO_M_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define DIO_M_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define DIO_M_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define DIO_M_GetValue()           PORTAbits.RA2
+#define DIO_M_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define DIO_M_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0)
+#define DIO_M_SetAnalogMode()      do { ANSELAbits.ANSA2 = 1; } while(0)
+#define DIO_M_SetDigitalMode()     do { ANSELAbits.ANSA2 = 0; } while(0)
+
 // get/set DIO aliases
 #define DIO_TRIS                 TRISAbits.TRISA3
 #define DIO_LAT                  LATAbits.LATA3

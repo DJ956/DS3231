@@ -1,5 +1,5 @@
 
-# 1 "DS3231.c"
+# 1 "TM1637_m.c"
 
 # 18 "C:\Program Files\Microchip\xc8\v2.30\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4292,30 +4292,26 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 6 "i2c.h"
-void i2c_wait();
-void i2c_start();
-void i2c_stop();
-void i2c_repeated_start();
-void i2c_write(uint8_t data);
-uint8_t i2c_read(uint8_t ack);
+# 15 "TM1637_m.h"
+void m_start();
+void m_stop();
+void m_set_brigthness(uint8_t brightness, uint8_t on);
+uint8_t m_write_data(uint8_t b);
+void m_set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
 
-# 20 "DS3231.h"
-struct Date{
-uint8_t year;
-uint8_t month;
-uint8_t day;
-uint8_t hour;
-uint8_t min;
-uint8_t sec;
+# 19 "TM.h"
+uint8_t segdata[] = {
+0x3F,
+0x06,
+0x5B,
+0x4F,
+0x66,
+0x6D,
+0x7D,
+0x07,
+0x7F,
+0x6F
 };
-
-void write_date(struct Date *date);
-void read_date(struct Date *date);
-uint8_t read_(uint8_t address);
-uint8_t bcd_2_decimal(uint8_t number);
-uint8_t decimal_2_bcd(uint8_t number);
-void rtc_display(struct Date *date);
 
 # 134 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
@@ -4352,58 +4348,97 @@ void OSCILLATOR_Initialize(void);
 # 94
 void WDT_Initialize(void);
 
-# 19 "DS3231.c"
-uint8_t bcd_2_decimal(uint8_t number){
-return ((number >> 4) * 10 + (number & 0x0F));
+# 14 "TM1637_m.c"
+uint8_t m_brightness;
+
+void m_start(void){
+do { TRISAbits.TRISA2 = 0; } while(0);
+do { TRISAbits.TRISA1 = 0; } while(0);
+
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+
+do { LATAbits.LATA2 = 0; } while(0);
+do { LATAbits.LATA1 = 0; } while(0);
 }
 
-# 28
-uint8_t decimal_2_bcd(uint8_t number){
-return (((number / 10) << 4) + (number % 10));
+void m_stop(void){
+do { TRISAbits.TRISA2 = 0; } while(0);
+do { TRISAbits.TRISA1 = 0; } while(0);
+
+do { LATAbits.LATA1 = 0; } while(0);
+do { LATAbits.LATA2 = 0; } while(0);
+
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
 }
 
-# 36
-void write_date(struct Date *date){
-i2c_start();
-i2c_write(0xD0);
-i2c_write(0x00);
+uint8_t m_write_data(uint8_t b){
+uint8_t data = b;
 
-i2c_write(decimal_2_bcd(date->sec));
-i2c_write(decimal_2_bcd(date->min));
-i2c_write(decimal_2_bcd(date->hour));
-i2c_write(1);
-i2c_write(decimal_2_bcd(date->day));
-i2c_write(decimal_2_bcd(date->month));
-i2c_write(decimal_2_bcd(date->year));
-i2c_stop();
+do { TRISAbits.TRISA1 = 0; } while(0);
+for(uint8_t i = 0; i < 8; i++){
+do { LATAbits.LATA1 = 0; } while(0);
 
-_delay((unsigned long)((200)*(8000000/4000.0)));
+if(data & 0x01){
+do { LATAbits.LATA2 = 1; } while(0);
+}else{
+do { LATAbits.LATA2 = 0; } while(0);
 }
 
-# 59
-uint8_t _read(uint8_t address){
-uint8_t data;
-i2c_start();
-i2c_write(0xD0);
-i2c_write(address);
+do { LATAbits.LATA1 = 1; } while(0);
 
-i2c_repeated_start();
-
-i2c_write(0xD0 | 0x01);
-data = bcd_2_decimal(i2c_read(1));
-i2c_stop();
-
-return data;
+data = data >> 1;
 }
 
-# 78
-void read_date(struct Date *date){
-date->year = _read(6);
-date->month = _read(5);
-date->day = _read(4);
-_read(3);
-date->hour = _read(2);
-date->min = _read(1);
-date->sec = _read(0);
+
+do { LATAbits.LATA1 = 0; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+
+
+do { LATAbits.LATA1 = 1; } while(0);
+
+do { TRISAbits.TRISA2 = 1; } while(0);
+
+uint8_t ack = PORTAbits.RA2;
+if(ack == 0){
+do { TRISAbits.TRISA2 = 0; } while(0);
+do { LATAbits.LATA2 = 0; } while(0);
 }
 
+do { TRISAbits.TRISA2 = 0; } while(0);
+
+return ack;
+}
+
+void m_set_brigthness(uint8_t brightness, uint8_t on){
+if(on == 1){
+m_brightness = (brightness & 0x7 | 0x08);
+}else{
+m_brightness = (brightness & 0x7 | 0x00);
+}
+}
+
+void m_set_segments(const uint8_t segments[], uint8_t length, uint8_t pos){
+
+
+m_start();
+m_write_data(0x40);
+m_stop();
+
+
+m_start();
+m_write_data(0xC0 + (pos & 0x03));
+
+
+for(uint8_t k = 0; k < length; k++){
+m_write_data(segments[k]);
+}
+
+m_stop();
+
+
+m_start();
+m_write_data(0x80 + (m_brightness & 0x0f));
+m_stop();
+}

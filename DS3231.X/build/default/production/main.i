@@ -4292,10 +4292,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 106 "mcc_generated_files/pin_manager.h"
+# 134 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 118
+# 146
 void PIN_MANAGER_IOC(void);
 
 # 15 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdbool.h"
@@ -4327,15 +4327,20 @@ void OSCILLATOR_Initialize(void);
 # 94
 void WDT_Initialize(void);
 
-# 12 "TM1637.h"
-void bit_delay();
+# 9 "TM1637.h"
 void start();
 void stop();
 void set_brigthness(uint8_t brightness, uint8_t on);
 uint8_t write_data(uint8_t b);
 void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
-void clear();
 uint8_t encode_digit(uint8_t digit);
+
+# 15 "TM1637_m.h"
+void m_start();
+void m_stop();
+void m_set_brigthness(uint8_t brightness, uint8_t on);
+uint8_t m_write_data(uint8_t b);
+void m_set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
 
 # 20 "DS3231.h"
 struct Date{
@@ -4354,7 +4359,20 @@ uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
 void rtc_display(struct Date *date);
 
-# 7 "main.c"
+# 8 "main.c"
+uint16_t money = 0;
+
+const uint16_t REGULAR_HOUR = 17;
+
+const uint16_t MIN_4_MONEY = 27;
+const uint16_t HOUR_4_MONEY = 1620;
+
+uint8_t t_segments[] = {0x0f, 0x0f, 0x0f, 0x0f};
+uint8_t m_segments[] = {0x0f, 0x0f, 0x0f, 0x0f};
+
+void money_display();
+void calc_money(struct Date date);
+
 void main(void)
 {
 
@@ -4373,39 +4391,71 @@ struct Date date;
 date.year = 20;
 date.month = 11;
 date.day = 1;
-date.hour = 10;
-date.min = 38;
-date.sec = 24;
+date.hour = 22;
+date.min = 30;
+date.sec = 0;
 
-
+write_date(&date);
 
 set_brigthness(0x0f, 1);
+m_set_brigthness(0x0f, 1);
 
+read_date(&date);
+calc_money(date);
+money_display();
 
 while (1)
 {
 read_date(&date);
 rtc_display(&date);
 
+if(date.sec == 0){
+if(date.hour > 17){
+calc_money(date);
+}
+}
+
+money_display();
 _delay((unsigned long)((100)*(8000000/4000.0)));
 }
 }
 
-void rtc_display(struct Date *date){
-uint8_t segments[] = {0xff, 0xff, 0xff, 0xff};
+void calc_money(struct Date date){
+uint16_t hour = (uint16_t)date.hour;
+uint16_t min = (uint16_t)date.min;
+money = ((hour - REGULAR_HOUR) * HOUR_4_MONEY) + (MIN_4_MONEY * min) - (MIN_4_MONEY * 20);
+}
 
-uint8_t year = date->year;
-uint8_t month = date->month;
-uint8_t day = date->day;
+void rtc_display(struct Date *date){
+
+
+
+
 uint8_t hour = date->hour;
 uint8_t min = date->min;
-uint8_t sec = date->sec;
 
-segments[0] = encode_digit(min / 10);
-segments[1] = encode_digit(min % 10);
-segments[2] = encode_digit(sec / 10);
-segments[3] = encode_digit(sec % 10);
 
-set_segments(segments, 4, 0);
+
+t_segments[0] = encode_digit(hour / 10);
+t_segments[1] = encode_digit(hour % 10);
+t_segments[2] = encode_digit(min / 10);
+t_segments[3] = encode_digit(min % 10);
+
+set_segments(t_segments, 4, 0);
+}
+
+void money_display(){
+uint16_t value = money;
+
+m_segments[0] = encode_digit(value / 1000);
+value %= 1000;
+m_segments[1] = encode_digit(value / 100);
+value %= 100;
+m_segments[2] = encode_digit(value / 10);
+value %= 10;
+m_segments[3] = encode_digit(value);
+
+
+m_set_segments(m_segments, 4, 0);
 }
 

@@ -12,8 +12,10 @@
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
       </logicalFolder>
       <itemPath>i2c.h</itemPath>
-      <itemPath>TM1637.h</itemPath>
       <itemPath>DS3231.h</itemPath>
+      <itemPath>TM1637.h</itemPath>
+      <itemPath>TM1637_m.h</itemPath>
+      <itemPath>TM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -31,8 +33,9 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>i2c.c</itemPath>
-      <itemPath>TM1637.c</itemPath>
       <itemPath>DS3231.c</itemPath>
+      <itemPath>TM1637.c</itemPath>
+      <itemPath>TM1637_m.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

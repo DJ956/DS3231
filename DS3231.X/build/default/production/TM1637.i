@@ -4292,20 +4292,32 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 12 "TM1637.h"
-void bit_delay();
+# 9 "TM1637.h"
 void start();
 void stop();
 void set_brigthness(uint8_t brightness, uint8_t on);
 uint8_t write_data(uint8_t b);
 void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
-void clear();
 uint8_t encode_digit(uint8_t digit);
 
-# 106 "mcc_generated_files/pin_manager.h"
+# 19 "TM.h"
+uint8_t segdata[] = {
+0x3F,
+0x06,
+0x5B,
+0x4F,
+0x66,
+0x6D,
+0x7D,
+0x07,
+0x7F,
+0x6F
+};
+
+# 134 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 118
+# 146
 void PIN_MANAGER_IOC(void);
 
 # 15 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdbool.h"
@@ -4337,26 +4349,8 @@ void OSCILLATOR_Initialize(void);
 # 94
 void WDT_Initialize(void);
 
-# 15 "TM1637.c"
+# 12 "TM1637.c"
 uint8_t m_brightness;
-
-uint8_t segdata[] = {
-0x3F,
-0x06,
-0x5B,
-0x4F,
-0x66,
-0x6D,
-0x7D,
-0x07,
-0x7F,
-0x6F
-};
-
-
-void bit_delay(void){
-
-}
 
 void start(void){
 do { TRISAbits.TRISA3 = 0; } while(0);
@@ -4406,7 +4400,6 @@ do { LATAbits.LATA3 = 1; } while(0);
 do { LATAbits.LATA0 = 1; } while(0);
 
 do { TRISAbits.TRISA3 = 1; } while(0);
-bit_delay();
 
 uint8_t ack = PORTAbits.RA3;
 if(ack == 0){
@@ -4414,9 +4407,7 @@ do { TRISAbits.TRISA3 = 0; } while(0);
 do { LATAbits.LATA3 = 0; } while(0);
 }
 
-bit_delay();
 do { TRISAbits.TRISA3 = 0; } while(0);
-bit_delay();
 
 return ack;
 }
@@ -4451,11 +4442,6 @@ stop();
 start();
 write_data(0x80 + (m_brightness & 0x0f));
 stop();
-}
-
-void clear(){
-uint8_t data[] = { 0, 0, 0, 0 };
-set_segments(data, 4, 0);
 }
 
 

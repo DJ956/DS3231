@@ -1,36 +1,85 @@
 /*
- * File:   TM1637.c
+ * File:   TM1637_2.c
  * Author: dexte
  *
- * Created on 2020/10/31, 8:36
+ * Created on November 2, 2020, 7:03 PM
  */
 
-#include "TM1637.h"
-#include "TM.h"
-#include "mcc_generated_files/mcc.h"
+
+#include <xc.h>
+
+#define COMM1 0x40 
+#define COMM2 0xC0
+#define COMM3 0x80
 
 uint8_t m_brightness;
 
-void start(void){
+unsigned char porta;
+
+uint8_t segdata[] = { 
+   0x3F, // 0
+   0x06, // 1
+   0x5B, // 2
+   0x4F, // 3
+   0x66, // 4
+   0x6D, // 5
+   0x7D, // 6
+   0x07, // 7
+   0x7F, // 8
+   0x6F  // 9 
+};
+
+
+void start(uint8_t dio, uint8_t clk){        
+    uint8_t pins = dio | clk;    
+    TRISA = 0xff; //init
+    
+    porta = TRISA;        
+    TRISA = porta ^ pins; //dio clk digital output        
+    /*
     DIO_SetDigitalOutput();
     CLK_SetDigitalOutput();
+    */
     
+    porta = LATA;
+    LATA = porta | pins; // dio clk set high
+    /*
     DIO_SetHigh();      
     CLK_SetHigh();
+    */
     
+    porta = LATA;
+    LATA = porta ^ pins; //dio clk set low    
+    /*
     DIO_SetLow();    
     CLK_SetLow();
+    */
 }
 
-void stop(void){
+void stop(uint8_t dio, uint8_t clk){
+    uint8_t pins = dio | clk;
+    TRISA = 0xff;
+    
+    porta = TRISA;
+    TRISA = porta ^ pins; //dio clk set high
+    /*
     DIO_SetDigitalOutput();
     CLK_SetDigitalOutput();
+    */
     
+    porta = LATA;
+    LATA = porta ^ pins; //dio clk set low
+    /*
     CLK_SetLow();
     DIO_SetLow();
-        
+    */
+    
+    porta = LATA;
+    LATA = porta | pins; //dio clk set high
+    /*
     CLK_SetHigh();
     DIO_SetHigh();    
+    */
 }
 
 uint8_t write_data(uint8_t b){
@@ -58,7 +107,8 @@ uint8_t write_data(uint8_t b){
     //SCL high    
     CLK_SetHigh();    
     
-    DIO_SetDigitalInput();    
+    DIO_SetDigitalInput();
+    bit_delay();
     
     uint8_t ack = DIO_GetValue();
     if(ack == 0){
@@ -66,7 +116,9 @@ uint8_t write_data(uint8_t b){
         DIO_SetLow();
     }
     
+    bit_delay();
     DIO_SetDigitalOutput();       
+    bit_delay();
     
     return ack;
 }
@@ -101,6 +153,11 @@ void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos){
     start();
     write_data(COMM3 + (m_brightness & 0x0f));    
     stop();
+}
+
+void clear(){
+    uint8_t data[] = { 0, 0, 0, 0 };
+	set_segments(data, 4, 0);
 }
 
 

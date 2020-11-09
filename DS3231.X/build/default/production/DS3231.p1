@@ -2818,8 +2818,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS3231.h: 32: uint8_t bcd_2_decimal(uint8_t number);
 [; ;DS3231.h: 33: uint8_t decimal_2_bcd(uint8_t number);
 [; ;DS3231.h: 34: void rtc_display(struct Date *date);
-[; ;pin_manager.h: 106: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 118: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 134: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 146: void PIN_MANAGER_IOC(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
 [; ;errno.h: 29: extern int errno;
 [; ;conio.h: 12: extern void init_uart(void);
