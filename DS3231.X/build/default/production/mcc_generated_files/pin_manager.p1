@@ -2846,9 +2846,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 79: WPUA = 0x00;
 "79
 [e = _WPUA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 80: OPTION_REGbits.nWPUEN = 1;
+[; ;pin_manager.c: 80: OPTION_REGbits.nWPUEN = 0;
 "80
-[e = . . _OPTION_REGbits 0 7 -> -> 1 `i `uc ]
+[e = . . _OPTION_REGbits 0 7 -> -> 0 `i `uc ]
 [; ;pin_manager.c: 86: APFCON0 = 0x00;
 "86
 [e = _APFCON0 -> -> 0 `i `uc ]

@@ -4359,7 +4359,7 @@ uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
 void rtc_display(struct Date *date);
 
-# 8 "main.c"
+# 10 "main.c"
 uint16_t money = 0;
 
 const uint16_t REGULAR_HOUR = 17;
@@ -4372,15 +4372,22 @@ uint8_t m_segments[] = {0x0f, 0x0f, 0x0f, 0x0f};
 
 void money_display();
 void calc_money(struct Date date);
+void add_time(struct Date *date);
 
 void main(void)
 {
 
 SYSTEM_Initialize();
 
+ANSELB = 0xCA;
+
 TRISB2 = 1;
 TRISB5 = 1;
-WPUB = 0x24;
+
+uint8_t prev;
+TRISB4 = 1;
+
+WPUB = 0x34;
 
 SSP2ADD = 0x13;
 SSP2CON1 = 0x28;
@@ -4390,9 +4397,9 @@ SSP2STAT = 0;
 struct Date date;
 date.year = 20;
 date.month = 11;
-date.day = 1;
-date.hour = 22;
-date.min = 30;
+date.day = 15;
+date.hour = 8;
+date.min = 40;
 date.sec = 0;
 
 write_date(&date);
@@ -4404,15 +4411,18 @@ read_date(&date);
 calc_money(date);
 money_display();
 
+prev = 0;
+
 while (1)
 {
 read_date(&date);
+_delay((unsigned long)((20)*(8000000/4000.0)));
+
+# 84
 rtc_display(&date);
 
 if(date.sec == 0){
-if(date.hour > 17){
 calc_money(date);
-}
 }
 
 money_display();
@@ -4420,20 +4430,38 @@ _delay((unsigned long)((100)*(8000000/4000.0)));
 }
 }
 
+void add_time(struct Date *date){
+if(date->min == 59){
+date->min = 0;
+if(date->hour == 23){
+date->hour = 0;
+}else{
+date-> hour = date->hour + 1;
+}
+}else{
+date->min = date->min + 1;
+}
+
+write_date(&date);
+_delay((unsigned long)((1000 * 5)*(8000000/4000.0)));
+}
+
 void calc_money(struct Date date){
+if(date.hour > 17){
 uint16_t hour = (uint16_t)date.hour;
 uint16_t min = (uint16_t)date.min;
 money = ((hour - REGULAR_HOUR) * HOUR_4_MONEY) + (MIN_4_MONEY * min) - (MIN_4_MONEY * 20);
+}else{
+money = 0;
+}
 }
 
 void rtc_display(struct Date *date){
 
 
 
-
 uint8_t hour = date->hour;
 uint8_t min = date->min;
-
 
 
 t_segments[0] = encode_digit(hour / 10);
@@ -4454,7 +4482,6 @@ value %= 100;
 m_segments[2] = encode_digit(value / 10);
 value %= 10;
 m_segments[3] = encode_digit(value);
-
 
 m_set_segments(m_segments, 4, 0);
 }
