@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+$C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
 config CONFIG 4 8007 8007 2 2
@@ -115,11 +115,11 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\DS3231.X.production.o
-7FD cinit CODE >2087:C:\Users\dexte\AppData\Local\Temp\xcAs31k.s
-7FD cinit CODE >2090:C:\Users\dexte\AppData\Local\Temp\xcAs31k.s
-7FD cinit CODE >2096:C:\Users\dexte\AppData\Local\Temp\xcAs31k.s
-7FD cinit CODE >2098:C:\Users\dexte\AppData\Local\Temp\xcAs31k.s
-7FE cinit CODE >2099:C:\Users\dexte\AppData\Local\Temp\xcAs31k.s
+7FD cinit CODE >2087:C:\Users\dexte\AppData\Local\Temp\xcAs7us.s
+7FD cinit CODE >2090:C:\Users\dexte\AppData\Local\Temp\xcAs7us.s
+7FD cinit CODE >2096:C:\Users\dexte\AppData\Local\Temp\xcAs7us.s
+7FD cinit CODE >2098:C:\Users\dexte\AppData\Local\Temp\xcAs7us.s
+7FE cinit CODE >2099:C:\Users\dexte\AppData\Local\Temp\xcAs7us.s
 57B text18 CODE >58:C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/mcc.c
 57B text18 CODE >61:C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/mcc.c
 57E text18 CODE >63:C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/mcc.c
@@ -335,11 +335,11 @@ _LATA 10C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _LATB 10D 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _WPUA 20C 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+___sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 _main CD4 0 CODE 0 maintext dist/default/production\DS3231.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __size_of_i2c_repeated_start 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-start 4 0 CODE 0 init C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+start 4 0 CODE 0 init C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __end_of_i2c_read C34 0 CODE 0 text11 dist/default/production\DS3231.X.production.o
@@ -352,12 +352,12 @@ __Hpowerup 0 0 CODE 0 powerup -
 __read@address 79 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 ___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 ___bmul@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -379,8 +379,8 @@ __size_of_i2c_write 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 __end_of___awdiv F3A 0 CODE 0 text4 dist/default/production\DS3231.X.production.o
 __end_of___awmod E7C 0 CODE 0 text3 dist/default/production\DS3231.X.production.o
 __size_of_decimal_2_bcd 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___stackhi 216F 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
-___stacklo 200D 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+___stackhi 216F 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
+___stacklo 200D 0 ABS 0 - C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 __size_of__read 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
 _i2c_start B3A 0 CODE 0 text9 dist/default/production\DS3231.X.production.o
 _i2c_write B66 0 CODE 0 text7 dist/default/production\DS3231.X.production.o
@@ -395,7 +395,7 @@ __end_of_SYSTEM_Initialize B26 0 CODE 0 text15 dist/default/production\DS3231.X.
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\DS3231.X.production.o
 _bcd_2_decimal B86 0 CODE 0 text13 dist/default/production\DS3231.X.production.o
 _WDTCON 97 0 ABS 0 - dist/default/production\DS3231.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+___int_sp 0 0 STACK 2 stack C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -535,7 +535,7 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _SYSTEM_Initialize B12 0 CODE 0 text15 dist/default/production\DS3231.X.production.o
 __Lintentry 4 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\dexte\AppData\Local\Temp\xcAs31k.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\dexte\AppData\Local\Temp\xcAs7us.o
 bcd_2_decimal@number 77 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 write_date@date 7C 0 COMMON 1 cstackCOMMON dist/default/production\DS3231.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\DS3231.X.production.o
