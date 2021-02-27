@@ -9,7 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "8
 [v _i2c_stop `(v ~T0 @X0 0 ef ]
 [v F38 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
+"12 C:\Program Files\Microchip\xc8\v2.32\pic\include\builtins.h
 [v __delay `JF38 ~T0 @X0 0 e ]
 [p i __delay ]
 "9 i2c.h
@@ -52,7 +52,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;builtins.h: 14: extern __nonreentrant void _delaywdt(uint32_t);
 [; ;builtins.h: 17: extern __nonreentrant void _delay3(uint8_t);
 [; ;pic16f1827.h: 53: extern volatile unsigned char INDF0 __at(0x000);
-"55 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f1827.h
+"55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f1827.h
 [; ;pic16f1827.h: 55: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1827.h: 58: typedef union {
@@ -2817,7 +2817,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS3231.h: 31: uint8_t read_(uint8_t address);
 [; ;DS3231.h: 32: uint8_t bcd_2_decimal(uint8_t number);
 [; ;DS3231.h: 33: uint8_t decimal_2_bcd(uint8_t number);
-[; ;DS3231.h: 34: void rtc_display(struct Date *date);
 [; ;pin_manager.h: 134: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 146: void PIN_MANAGER_IOC(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;

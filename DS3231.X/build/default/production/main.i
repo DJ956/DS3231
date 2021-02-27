@@ -1,17 +1,17 @@
 
 # 1 "main.c"
 
-# 18 "C:\Program Files\Microchip\xc8\v2.30\pic\include\xc.h"
+# 18 "C:\Program Files\Microchip\xc8\v2.32\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\xc8debug.h"
+# 13 "C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 13 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdint.h"
+# 13 "C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -98,7 +98,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 7 "C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h"
+# 7 "C:\Program Files\Microchip\xc8\v2.32\pic\include\builtins.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -111,7 +111,7 @@ extern __nonreentrant void _delaywdt(uint32_t);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(uint8_t);
 
-# 53 "C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f1827.h"
+# 53 "C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f1827.h"
 extern volatile unsigned char INDF0 __at(0x000);
 
 asm("INDF0 equ 00h");
@@ -4276,18 +4276,18 @@ extern volatile __bit nTO __at(0x1C);
 
 extern volatile __bit nWPUEN __at(0x4AF);
 
-# 76 "C:\Program Files\Microchip\xc8\v2.30\pic\include\pic.h"
+# 76 "C:\Program Files\Microchip\xc8\v2.32\pic\include\pic.h"
 __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
 
 __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short data);
 
 __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_erase(unsigned short addr);
 
-# 114 "C:\Program Files\Microchip\xc8\v2.30\pic\include\eeprom_routines.h"
+# 114 "C:\Program Files\Microchip\xc8\v2.32\pic\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 
-# 127 "C:\Program Files\Microchip\xc8\v2.30\pic\include\pic.h"
+# 127 "C:\Program Files\Microchip\xc8\v2.32\pic\include\pic.h"
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
@@ -4298,13 +4298,13 @@ void PIN_MANAGER_Initialize (void);
 # 146
 void PIN_MANAGER_IOC(void);
 
-# 15 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\stdbool.h"
+# 15 "C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 29 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\errno.h"
+# 29 "C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files\Microchip\xc8\v2.30\pic\include\c90\conio.h"
+# 12 "C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -4327,21 +4327,6 @@ void OSCILLATOR_Initialize(void);
 # 94
 void WDT_Initialize(void);
 
-# 9 "TM1637.h"
-void start();
-void stop();
-void set_brigthness(uint8_t brightness, uint8_t on);
-uint8_t write_data(uint8_t b);
-void set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
-uint8_t encode_digit(uint8_t digit);
-
-# 15 "TM1637_m.h"
-void m_start();
-void m_stop();
-void m_set_brigthness(uint8_t brightness, uint8_t on);
-uint8_t m_write_data(uint8_t b);
-void m_set_segments(const uint8_t segments[], uint8_t length, uint8_t pos);
-
 # 20 "DS3231.h"
 struct Date{
 uint8_t year;
@@ -4357,23 +4342,16 @@ void read_date(struct Date *date);
 uint8_t read_(uint8_t address);
 uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
-void rtc_display(struct Date *date);
 
-# 10 "main.c"
-uint16_t money = 0;
+# 6 "i2c.h"
+void i2c_wait();
+void i2c_start();
+void i2c_stop();
+void i2c_repeated_start();
+void i2c_write(uint8_t data);
+uint8_t i2c_read(uint8_t ack);
 
-const uint16_t REGULAR_HOUR = 17;
-
-const uint16_t MIN_4_MONEY = 27;
-const uint16_t HOUR_4_MONEY = 1620;
-
-uint8_t t_segments[] = {0x0f, 0x0f, 0x0f, 0x0f};
-uint8_t m_segments[] = {0x0f, 0x0f, 0x0f, 0x0f};
-
-void money_display();
-void calc_money(struct Date date);
-void add_time(struct Date *date);
-
+# 7 "main.c"
 void main(void)
 {
 
@@ -4381,13 +4359,7 @@ SYSTEM_Initialize();
 
 ANSELB = 0xCA;
 
-TRISB2 = 1;
-TRISB5 = 1;
-
-uint8_t prev;
-TRISB4 = 1;
-
-WPUB = 0x34;
+WPUB = 0x24;
 
 SSP2ADD = 0x13;
 SSP2CON1 = 0x28;
@@ -4404,85 +4376,12 @@ date.sec = 0;
 
 write_date(&date);
 
-set_brigthness(0x0f, 1);
-m_set_brigthness(0x0f, 1);
 
 read_date(&date);
-calc_money(date);
-money_display();
-
-prev = 0;
 
 while (1)
 {
 read_date(&date);
 _delay((unsigned long)((20)*(8000000/4000.0)));
-
-# 84
-rtc_display(&date);
-
-if(date.sec == 0){
-calc_money(date);
-}
-
-money_display();
-_delay((unsigned long)((100)*(8000000/4000.0)));
 }
 }
-
-void add_time(struct Date *date){
-if(date->min == 59){
-date->min = 0;
-if(date->hour == 23){
-date->hour = 0;
-}else{
-date-> hour = date->hour + 1;
-}
-}else{
-date->min = date->min + 1;
-}
-
-write_date(&date);
-_delay((unsigned long)((1000 * 5)*(8000000/4000.0)));
-}
-
-void calc_money(struct Date date){
-if(date.hour > 17){
-uint16_t hour = (uint16_t)date.hour;
-uint16_t min = (uint16_t)date.min;
-money = ((hour - REGULAR_HOUR) * HOUR_4_MONEY) + (MIN_4_MONEY * min) - (MIN_4_MONEY * 20);
-}else{
-money = 0;
-}
-}
-
-void rtc_display(struct Date *date){
-
-
-
-uint8_t hour = date->hour;
-uint8_t min = date->min;
-
-
-t_segments[0] = encode_digit(hour / 10);
-t_segments[1] = encode_digit(hour % 10);
-t_segments[2] = encode_digit(min / 10);
-t_segments[3] = encode_digit(min % 10);
-
-set_segments(t_segments, 4, 0);
-}
-
-void money_display(){
-uint16_t value = money;
-
-m_segments[0] = encode_digit(value / 1000);
-value %= 1000;
-m_segments[1] = encode_digit(value / 100);
-value %= 100;
-m_segments[2] = encode_digit(value / 10);
-value %= 10;
-m_segments[3] = encode_digit(value);
-
-m_set_segments(m_segments, 4, 0);
-}
-

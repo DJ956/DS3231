@@ -31,7 +31,6 @@ void read_date(struct Date *date);
 uint8_t read_(uint8_t address);
 uint8_t bcd_2_decimal(uint8_t number);
 uint8_t decimal_2_bcd(uint8_t number);
-void rtc_display(struct Date *date);
 
 
 #ifdef	__cplusplus

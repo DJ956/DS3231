@@ -3,27 +3,21 @@
 [d edition pro ]
 [d chip 16F1827 ]
 [d frameptr 6 ]
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"19 C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+"19 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\DS3231.c
 [v _bcd_2_decimal bcd_2_decimal `(uc  1 e 1 0 ]
 "28
 [v _decimal_2_bcd decimal_2_bcd `(uc  1 e 1 0 ]
@@ -33,7 +27,7 @@
 [v __read _read `(uc  1 e 1 0 ]
 "78
 [v _read_date read_date `(v  1 e 1 0 ]
-"5 C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+"5 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\i2c.c
 [v _i2c_wait i2c_wait `(v  1 e 1 0 ]
 "9
 [v _i2c_start i2c_start `(v  1 e 1 0 ]
@@ -45,70 +39,18 @@
 [v _i2c_write i2c_write `(v  1 e 1 0 ]
 "33
 [v _i2c_read i2c_read `(uc  1 e 1 0 ]
-"24 C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+"7 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"111
-[v _calc_money calc_money `(v  1 e 1 0 ]
-"121
-[v _rtc_display rtc_display `(v  1 e 1 0 ]
-"137
-[v _money_display money_display `(v  1 e 1 0 ]
-"50 C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+"50 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 "58
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "68
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
-"55 C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+"55 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"14 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
-[v _start start `(v  1 e 1 0 ]
-"25
-[v _stop stop `(v  1 e 1 0 ]
-"36
-[v _write_data write_data `(uc  1 e 1 0 ]
-"74
-[v _set_brigthness set_brigthness `(v  1 e 1 0 ]
-"82
-[v _set_segments set_segments `(v  1 e 1 0 ]
-"107
-[v _encode_digit encode_digit `(uc  1 e 1 0 ]
-"16 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637_m.c
-[v _m_start m_start `(v  1 e 1 0 ]
-"27
-[v _m_stop m_stop `(v  1 e 1 0 ]
-"38
-[v _m_write_data m_write_data `(uc  1 e 1 0 ]
-"76
-[v _m_set_brigthness m_set_brigthness `(v  1 e 1 0 ]
-"84
-[v _m_set_segments m_set_segments `(v  1 e 1 0 ]
-[s S411 . 1 `uc 1 RA0 1 0 :1:0 
-`uc 1 RA1 1 0 :1:1 
-`uc 1 RA2 1 0 :1:2 
-`uc 1 RA3 1 0 :1:3 
-`uc 1 RA4 1 0 :1:4 
-`uc 1 RA5 1 0 :1:5 
-`uc 1 RA6 1 0 :1:6 
-`uc 1 RA7 1 0 :1:7 
-]
-"447 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f1827.h
-[u S420 . 1 `S411 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES420  1 e 1 @12 ]
-"1153
+"1153 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f1827.h
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
-[s S369 . 1 `uc 1 TRISA0 1 0 :1:0 
-`uc 1 TRISA1 1 0 :1:1 
-`uc 1 TRISA2 1 0 :1:2 
-`uc 1 TRISA3 1 0 :1:3 
-`uc 1 TRISA4 1 0 :1:4 
-`uc 1 TRISA5 1 0 :1:5 
-`uc 1 TRISA6 1 0 :1:6 
-`uc 1 TRISA7 1 0 :1:7 
-]
-"1170
-[u S378 . 1 `S369 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES378  1 e 1 @140 ]
 "1215
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
 [s S30 . 1 `uc 1 PS0 1 0 :1:0 
@@ -136,18 +78,6 @@
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
 "2040
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S390 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 . 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-`uc 1 LATA7 1 0 :1:7 
-]
-"2057
-[u S399 . 1 `S390 1 . 1 0 ]
-[v _LATAbits LATAbits `VES399  1 e 1 @268 ]
 "2097
 [v _LATB LATB `VEuc  1 e 1 @269 ]
 "2431
@@ -170,7 +100,7 @@
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @538 ]
 "4331
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @540 ]
-[s S243 . 1 `uc 1 BF 1 0 :1:0 
+[s S158 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -180,11 +110,11 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "4348
-[u S252 . 1 `S243 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES252  1 e 1 @540 ]
+[u S167 . 1 `S158 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES167  1 e 1 @540 ]
 "4393
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @541 ]
-[s S264 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S179 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
@@ -194,13 +124,13 @@
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4413
-[s S273 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S188 . 1 `uc 1 SSPM 1 0 :4:0 
 ]
-[u S275 . 1 `S264 1 . 1 0 `S273 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES275  1 e 1 @541 ]
+[u S190 . 1 `S179 1 . 1 0 `S188 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES190  1 e 1 @541 ]
 "4463
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @542 ]
-[s S221 . 1 `uc 1 SEN 1 0 :1:0 
+[s S136 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -210,39 +140,23 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4480
-[u S230 . 1 `S221 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES230  1 e 1 @542 ]
-"8048
-[v _TRISB2 TRISB2 `VEb  1 e 0 @1130 ]
-"8054
-[v _TRISB4 TRISB4 `VEb  1 e 0 @1132 ]
-"8057
-[v _TRISB5 TRISB5 `VEb  1 e 0 @1133 ]
-"10 C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-[v _money money `ui  1 e 2 0 ]
-"17
-[v _t_segments t_segments `[4]uc  1 e 4 0 ]
-"18
-[v _m_segments m_segments `[4]uc  1 e 4 0 ]
-"19 C:\Users\dexte\MPLABXProjects\DS3231.X\TM.h
-[v _segdata segdata `[10]uc  1 e 10 0 ]
-"14 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637_m.c
-[v _m_brightness m_brightness `uc  1 e 1 0 ]
-"24 C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
+[u S145 . 1 `S136 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES145  1 e 1 @542 ]
+"7 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-[s S101 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
-"44
-[v main@date date `S101  1 a 6 11 ]
-"93
+[s S98 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
+"21
+[v main@date date `S98  1 a 6 7 ]
+"39
 } 0
-"36 C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+"36 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\DS3231.c
 [v _write_date write_date `(v  1 e 1 0 ]
 {
-[s S101 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
-[v write_date@date date `*.4S101  1 a 1 wreg ]
-[v write_date@date date `*.4S101  1 a 1 wreg ]
-[v write_date@date date `*.4S101  1 a 1 12 ]
+[s S98 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
+[v write_date@date date `*.4S98  1 a 1 wreg ]
+[v write_date@date date `*.4S98  1 a 1 wreg ]
+[v write_date@date date `*.4S98  1 a 1 12 ]
 "51
 } 0
 "28
@@ -253,71 +167,7 @@
 [v decimal_2_bcd@number number `uc  1 a 1 9 ]
 "30
 } 0
-"74 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
-[v _set_brigthness set_brigthness `(v  1 e 1 0 ]
-{
-[v set_brigthness@brightness brightness `uc  1 a 1 wreg ]
-[v set_brigthness@brightness brightness `uc  1 a 1 wreg ]
-[v set_brigthness@on on `uc  1 p 1 0 ]
-[v set_brigthness@brightness brightness `uc  1 a 1 2 ]
-"80
-} 0
-"121 C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-[v _rtc_display rtc_display `(v  1 e 1 0 ]
-{
-[s S101 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
-[v rtc_display@date date `*.4S101  1 a 1 wreg ]
-"126
-[v rtc_display@min min `uc  1 a 1 2 ]
-"125
-[v rtc_display@hour hour `uc  1 a 1 1 ]
-"121
-[v rtc_display@date date `*.4S101  1 a 1 wreg ]
-"125
-"121
-[v rtc_display@date date `*.4S101  1 a 1 0 ]
-"135
-} 0
-"82 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
-[v _set_segments set_segments `(v  1 e 1 0 ]
-{
-[v set_segments@segments segments `*.4DCuc  1 a 1 wreg ]
-"94
-[v set_segments@k k `uc  1 a 1 9 ]
-"82
-[v set_segments@segments segments `*.4DCuc  1 a 1 wreg ]
-[v set_segments@length length `uc  1 p 1 5 ]
-[v set_segments@pos pos `uc  1 p 1 6 ]
-"85
-[v set_segments@segments segments `*.4DCuc  1 a 1 8 ]
-"104
-} 0
-"36
-[v _write_data write_data `(uc  1 e 1 0 ]
-{
-[v write_data@b b `uc  1 a 1 wreg ]
-"40
-[v write_data@i i `uc  1 a 1 4 ]
-"37
-[v write_data@data data `uc  1 a 1 3 ]
-"63
-[v write_data@ack ack `uc  1 a 1 2 ]
-"36
-[v write_data@b b `uc  1 a 1 wreg ]
-[v write_data@b b `uc  1 a 1 1 ]
-"72
-} 0
-"25
-[v _stop stop `(v  1 e 1 0 ]
-{
-"34
-} 0
-"14
-[v _start start `(v  1 e 1 0 ]
-{
-"23
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awmod.c
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "10
@@ -328,7 +178,7 @@
 [v ___awmod@dividend dividend `i  1 p 2 2 ]
 "34
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\awdiv.c
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
@@ -341,13 +191,13 @@
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"78 C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+"78 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\DS3231.c
 [v _read_date read_date `(v  1 e 1 0 ]
 {
-[s S101 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
-[v read_date@date date `*.4S101  1 a 1 wreg ]
-[v read_date@date date `*.4S101  1 a 1 wreg ]
-[v read_date@date date `*.4S101  1 a 1 12 ]
+[s S98 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
+[v read_date@date date `*.4S98  1 a 1 wreg ]
+[v read_date@date date `*.4S98  1 a 1 wreg ]
+[v read_date@date date `*.4S98  1 a 1 12 ]
 "86
 } 0
 "59
@@ -362,7 +212,7 @@
 [v __read@address address `uc  1 a 1 9 ]
 "72
 } 0
-"26 C:\Users\dexte\MPLABXProjects\DS3231.X\i2c.c
+"26 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\i2c.c
 [v _i2c_write i2c_write `(v  1 e 1 0 ]
 {
 [v i2c_write@data data `uc  1 a 1 wreg ]
@@ -402,7 +252,7 @@
 {
 "7
 } 0
-"19 C:\Users\dexte\MPLABXProjects\DS3231.X\DS3231.c
+"19 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\DS3231.c
 [v _bcd_2_decimal bcd_2_decimal `(uc  1 e 1 0 ]
 {
 [v bcd_2_decimal@number number `uc  1 a 1 wreg ]
@@ -410,7 +260,7 @@
 [v bcd_2_decimal@number number `uc  1 a 1 7 ]
 "21
 } 0
-"4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8.c
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
 {
 [v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
@@ -423,114 +273,7 @@
 [v ___bmul@multiplier multiplier `uc  1 a 1 3 ]
 "51
 } 0
-"137 C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-[v _money_display money_display `(v  1 e 1 0 ]
-{
-"138
-[v money_display@value value `ui  1 a 2 11 ]
-"149
-} 0
-"84 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637_m.c
-[v _m_set_segments m_set_segments `(v  1 e 1 0 ]
-{
-[v m_set_segments@segments segments `*.4DCuc  1 a 1 wreg ]
-"96
-[v m_set_segments@k k `uc  1 a 1 9 ]
-"84
-[v m_set_segments@segments segments `*.4DCuc  1 a 1 wreg ]
-[v m_set_segments@length length `uc  1 p 1 5 ]
-[v m_set_segments@pos pos `uc  1 p 1 6 ]
-"87
-[v m_set_segments@segments segments `*.4DCuc  1 a 1 8 ]
-"106
-} 0
-"38
-[v _m_write_data m_write_data `(uc  1 e 1 0 ]
-{
-[v m_write_data@b b `uc  1 a 1 wreg ]
-"42
-[v m_write_data@i i `uc  1 a 1 4 ]
-"39
-[v m_write_data@data data `uc  1 a 1 3 ]
-"65
-[v m_write_data@ack ack `uc  1 a 1 2 ]
-"38
-[v m_write_data@b b `uc  1 a 1 wreg ]
-[v m_write_data@b b `uc  1 a 1 1 ]
-"74
-} 0
-"27
-[v _m_stop m_stop `(v  1 e 1 0 ]
-{
-"36
-} 0
-"16
-[v _m_start m_start `(v  1 e 1 0 ]
-{
-"25
-} 0
-"107 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637.c
-[v _encode_digit encode_digit `(uc  1 e 1 0 ]
-{
-[v encode_digit@digit digit `uc  1 a 1 wreg ]
-[v encode_digit@digit digit `uc  1 a 1 wreg ]
-[v encode_digit@digit digit `uc  1 a 1 0 ]
-"109
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwmod@counter counter `uc  1 a 1 5 ]
-"5
-[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
-"25
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwdiv@quotient quotient `ui  1 a 2 6 ]
-"11
-[v ___lwdiv@counter counter `uc  1 a 1 5 ]
-"5
-[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
-"30
-} 0
-"76 C:\Users\dexte\MPLABXProjects\DS3231.X\TM1637_m.c
-[v _m_set_brigthness m_set_brigthness `(v  1 e 1 0 ]
-{
-[v m_set_brigthness@brightness brightness `uc  1 a 1 wreg ]
-[v m_set_brigthness@brightness brightness `uc  1 a 1 wreg ]
-[v m_set_brigthness@on on `uc  1 p 1 0 ]
-[v m_set_brigthness@brightness brightness `uc  1 a 1 2 ]
-"82
-} 0
-"111 C:\Users\dexte\MPLABXProjects\DS3231.X\main.c
-[v _calc_money calc_money `(v  1 e 1 0 ]
-{
-"114
-[v calc_money@min min `ui  1 a 2 6 ]
-"113
-[v calc_money@hour hour `ui  1 a 2 4 ]
-[s S101 Date 6 `uc 1 year 1 0 `uc 1 month 1 1 `uc 1 day 1 2 `uc 1 hour 1 3 `uc 1 min 1 4 `uc 1 sec 1 5 ]
-"111
-[v calc_money@date date `S101  1 p 6 6 ]
-"119
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"50 C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+"50 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
 "56
@@ -540,12 +283,12 @@
 {
 "72
 } 0
-"55 C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/pin_manager.c
+"55 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "94
 } 0
-"58 C:\Users\dexte\MPLABXProjects\DS3231.X\mcc_generated_files/mcc.c
+"58 C:\Users\dexte\Documents\GitHub\DS3231\DS3231.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
 "66
